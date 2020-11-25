@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
         session[:user_id] = @user.id
-        # REDIRECT TO DASH
+        redirect_to dashboards_path
     else
         redirect_back
     end
