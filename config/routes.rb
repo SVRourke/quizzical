@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   root to: "static#welcome"
   
-  resources :groups do
-    member do
-      get 'join', action: :enroll # Maybe not necessary 
-      post 'join', action: :submit_enrollment
-    end
-  end
+  # resources :groups do
+  #   member do
+  #     get 'join', action: :enroll # Maybe not necessary 
+  #     post 'join', action: :submit_enrollment
+  #   end
+  # end
   
   # Sessions Routes
   get 'login', to: 'sessions#new'
@@ -17,10 +17,15 @@ Rails.application.routes.draw do
   get 'sign-up', to: 'users#new'
   post 'sign-up', to: 'users#create'
 
-  resources :users, only: [:new, :create, :update, :destroy]
+  resources :users, only: [:show, :new, :create, :update, :destroy]
 
+  resource :dashboards, only: :show do
+    member do
+      get 'educator', to: 'dashboards#teacher'
+      get 'student', to: 'dashboards#student'
+    end
+  end
 end
-  
 
 # AS A STUDENT
   # Dashboard "/students/3/home"
