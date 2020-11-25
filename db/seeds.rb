@@ -8,17 +8,17 @@
 
 # Create two teachers
 teachers = User.create([
-        {first_name: "Sharain", last_name: "Lark", email: "slark@school.com", teacher: true},
-        {first_name: "Sam", last_name: "Rourke", email: "srourke@school.com", teacher: true}
+        {first_name: "Sharain", last_name: "Lark", email: "slark@school.com", teacher: true, password: "password"},
+        {first_name: "Sam", last_name: "Rourke", email: "srourke@school.com", teacher: true, password: "password"}
         ])
 
 # Create 4 students
 students = User.create(
     [
-        {first_name: "Student 1", last_name: "last_name", email: "s1@test.com"},
-        {first_name: "Student 2", last_name: "last_name", email: "s2@test.com"},
-        {first_name: "Student 3", last_name: "last_name", email: "s3@test.com"},
-        {first_name: "Student 4", last_name: "last_name", email: "s4@test.com"}
+        {first_name: "Student 1", last_name: "last_name", email: "s1@test.com", password: "password"},
+        {first_name: "Student 2", last_name: "last_name", email: "s2@test.com", password: "password"},
+        {first_name: "Student 3", last_name: "last_name", email: "s3@test.com", password: "password"},
+        {first_name: "Student 4", last_name: "last_name", email: "s4@test.com", password: "password"}
     ]
 )
 # Create two Groups
