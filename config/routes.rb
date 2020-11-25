@@ -8,10 +8,16 @@ Rails.application.routes.draw do
     end
   end
   
+  # Sessions Routes
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
+  # Sign Up Routes
+  get 'sign-up', to: 'users#new'
+  post 'sign-up', to: 'users#create'
+
+  resources :users, only: [:new, :create, :update, :destroy]
 
 end
   
