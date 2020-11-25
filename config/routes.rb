@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
   root to: "static#welcome"
   
-  
+  resources :groups do
+    member do
+      get 'join', action: :enroll
+      post 'join', action: :submit_enrollment
+    end
+  end
   
 end
+
 
 
 # AS A STUDENT
