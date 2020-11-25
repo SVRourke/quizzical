@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+    has_secure_password
+
     # Teacher Relationships
     has_many :group_admins
     has_many :taught_classes, through: :group_admins, source: :group
