@@ -3,14 +3,18 @@ Rails.application.routes.draw do
   
   resources :groups do
     member do
-      get 'join', action: :enroll
+      get 'join', action: :enroll # Maybe not necessary 
       post 'join', action: :submit_enrollment
     end
   end
   
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  post 'logout', to: 'sessions#destroy'
+
+
 end
-
-
+  
 
 # AS A STUDENT
   # Dashboard "/students/3/home"
