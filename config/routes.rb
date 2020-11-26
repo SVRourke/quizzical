@@ -19,12 +19,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :new, :create, :update, :destroy]
 
-  resource :dashboards, only: :show do
-    member do
-      get 'educator', to: 'dashboards#teacher'
-      get 'student', to: 'dashboards#student'
-    end
-  end
+  resource :dashboards, only: :show
 end
 
 # AS A STUDENT
