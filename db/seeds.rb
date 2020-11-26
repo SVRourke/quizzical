@@ -34,8 +34,8 @@ groups[1].students << students[2..3]
 
 # create 2 Quizzes
 quizzes = Quiz.create([
-    {name: "Quiz 1", user: teachers[0]},
-    {name: "Quiz 2", user: teachers[1]}
+    {name: "Quiz 1", group: groups.first},
+    {name: "Quiz 2", group: groups.last}
 ])
 # Populate the quizzes with questions and answers
 quizzes.each do |qz|
