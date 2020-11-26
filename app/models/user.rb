@@ -5,7 +5,7 @@ class User < ApplicationRecord
     has_many :group_admins
     has_many :taught_classes, through: :group_admins, source: :group
     has_many :students, through: :taught_classes, source: :students
-    has_many :quizzes
+    has_many :quizzes, through: :taught_classes, source: :quizzes
     
     # Student Relationships
     has_and_belongs_to_many :enrolled_classes, 
