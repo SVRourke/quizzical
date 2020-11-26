@@ -1,0 +1,29 @@
+<h1>Hello <%= @user.first_name %></h1>
+
+<h3>Groups:</h3>
+<ul>
+    <% @user.taught_classes.each do |c| %>
+        <li>
+            <%= c.name %>
+            <%= c.students.count %>
+        </li>
+    <% end %>
+</ul>
+
+<h3>Students:</h3>
+<ul>
+    <% @user.students.each do |s| %>
+        <li>
+            <%= s.first_name %>
+        </li>
+    <% end %>
+</ul>
+
+<h3>Quizzes:</h3>
+<ul>
+    <% @user.quizzes.each do |q| %>
+        <li>
+            <%= q.name %>
+        </li>
+    <% end %>
+</ul>

@@ -1,0 +1,31 @@
+<h1>Hello <%= @user.first_name %></h1>
+<a href="#">Find A Group</a>
+<h3>Groups:</h3>
+<ul>
+    <% @user.enrolled_classes.each do |c| %>
+        <li>
+            <%= c.teacher.last_name %>: <%= c.name %><br>
+            Quizzes: <%= c.quizzes.count %>
+        </li>
+    <% end %>
+</ul>
+
+<h3>Quizzes Due:</h3>
+<ul>
+    <% @user.assigned_quizzes.each do |q| %>
+        <li>
+            <%= q.name %><br>
+            <%= q.user.last_name %>
+        </li>
+    <% end %>
+</ul>
+
+<h3>Completed Quizzes:</h3>
+<ul>
+    <% @user.results.each do |q| %>
+        <li>
+            Quiz: <%= q.quiz.name %><br>
+            Grade: <%= q.grade.to_i %>%
+        </li>
+    <% end %>
+</ul>
