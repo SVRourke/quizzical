@@ -24,7 +24,7 @@ class GroupsController < ApplicationController
     # maybe moved to enrollment controller??
     def submit_enrollment
         # can be refactored by scoping groups
-        if current_user.enrolled_classes.where(id: params[:id])
+        if current_user.enrolled_classes.exists?(params[:id])
             # add an alert
             redirect_to groups_path
         else
