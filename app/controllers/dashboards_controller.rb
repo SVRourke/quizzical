@@ -1,15 +1,11 @@
 class DashboardsController < ApplicationController
     def show
-        if current_user.teacher?
-            redirect_to educator_dashboards_path
+        @user = current_user
+        if @user.teacher?
+            render :teacher
         else
-            redirect_to student_dashboards_path
+            render :student
         end
     end
 
-    def student
-    end
-
-    def teacher
-    end
 end
