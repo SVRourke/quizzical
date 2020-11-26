@@ -56,10 +56,10 @@ ActiveRecord::Schema.define(version: 2020_11_24_171917) do
 
   create_table "quizzes", force: :cascade do |t|
     t.string "name"
-    t.integer "user_id"
+    t.integer "group_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_quizzes_on_user_id"
+    t.index ["group_id"], name: "index_quizzes_on_group_id"
   end
 
   create_table "results", force: :cascade do |t|
