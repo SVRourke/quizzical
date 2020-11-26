@@ -20,7 +20,8 @@ class GroupsController < ApplicationController
 
     def destroy
     end
-
+    
+    # maybe moved to enrollment controller??
     def submit_enrollment
         # can be refactored by scoping groups
         if current_user.enrolled_classes.where(id: params[:id])
