@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
         @user = User.find_by(email: params[:email])
         if @user.valid? && @user.authenticate(params[:password])
             session[:user_id] = @user.id
-            # ADD REDIRECT TO USER DASHBOARD
+            redirect_to dashboards_path
         else
             redirect_back(fallback_location: root_path)
         end
