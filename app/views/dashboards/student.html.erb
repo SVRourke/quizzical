@@ -15,7 +15,7 @@
     <% @user.assigned_quizzes.each do |q| %>
         <li>
             <%= q.name %><br>
-            <%= q.user.last_name %>
+            <%= q.group.teacher.last_name %>
         </li>
     <% end %>
 </ul>
