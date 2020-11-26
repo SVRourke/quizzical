@@ -10,6 +10,13 @@
   </head>
 
   <body>
+    <% if session[:user_id] %>
+      <%= button_to "logout", logout_path, method: 'delete' %>
+    <% else%>
+      <%= link_to 'Log In', login_path %>
+      <%= link_to 'Sign Up', sign_up_path %>
+    <% end %>
+    
     <%= yield %>
   </body>
 </html>
