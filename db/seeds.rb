@@ -30,7 +30,7 @@ groups = Group.create(
 )
 # Assign students to groups
 groups[0].students << students[0..1]
-groups[0].students << students[2..3]
+groups[1].students << students[2..3]
 
 # create 2 Quizzes
 quizzes = Quiz.create([
