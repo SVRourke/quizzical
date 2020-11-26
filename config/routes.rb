@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
   root to: "static#welcome"
   
-  # resources :groups do
-  #   member do
-  #     get 'join', action: :enroll # Maybe not necessary 
-  #     post 'join', action: :submit_enrollment
-  #   end
-  # end
+  resources :groups do
+    member do
+      post 'join', action: :submit_enrollment
+    end
+  end
   
   # Sessions Routes
   get 'login', to: 'sessions#new'
