@@ -1,0 +1,20 @@
+<h1><%= @group.name %></h1>
+<h3><%= @group.teacher.last_name %></h3>
+
+<h2>Quizzes</h2>
+<ul>
+    <% @group.quizzes.each do |q| %>
+        <li>
+            <%= q.name %>
+        </li>
+    <% end %>
+</ul>
+
+<h2>Students</h2>
+<ul>
+    <% @group.students.each do |s| %>
+        <li>
+            <%= s.first_name %>
+        </li>
+    <% end %>
+</ul>
