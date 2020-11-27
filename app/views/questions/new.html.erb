@@ -17,9 +17,20 @@
 
 
 <% if @quiz.questions.any? %>
-    <%= @quiz.questions.each do |q| %>
-        <p><%= q.content %></p>
-    <% end %>
+    <ol>
+        <% @quiz.questions.each do |q| %>
+            <li><%= q.content %>
+                <ul>
+                    <% q.answers.each do |a| %>
+                        <li>
+                            <%= a.content %><%= " -correct answer" if a.correct_answer %>
+                        </li>
+                        <%# add delet button %>
+                    <% end %>
+                </ul>
+            </li>
+        <% end %>
+    </ol>
 <% else %>
     <p>Add a question!</p>
 <% end %>
