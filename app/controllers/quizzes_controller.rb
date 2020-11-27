@@ -16,6 +16,12 @@ class QuizzesController < ApplicationController
         end
     end
 
+    def publish
+        @quiz = Quiz.find(params[:id])
+        @quiz.update(published: true)
+        redirect_to group_path(@quiz.group)
+    end
+
     private
     
     def quiz_params
