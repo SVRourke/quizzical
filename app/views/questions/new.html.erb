@@ -1,0 +1,27 @@
+<h1><%= @quiz.name %></h1>
+
+<%= form_for [@quiz, @question] do |f| %>
+    <%= f.label :content, "Question Content:" %><br>
+    <%= f.text_field :content %><br><br>
+    <%= f.fields_for :answers do |answer_form| %>
+        <%# <%= render 'answer_fields', :f => answer_form %>
+        <%= answer_form.label :content , "Answer:"%><br>
+        <%= answer_form.text_field :content %>
+        <%= answer_form.label :correct_answer , "Correct Answer?"%>
+        <%= answer_form.check_box :correct_answer %><br><br>
+    <% end %>
+
+    
+
+    <%= f.submit "Add Question" %>
+<% end %>
+
+
+
+<% if @quiz.questions.any? %>
+    <%= @quiz.questions.each do |q| %>
+        <p><%= q.content %></p>
+    <% end %>
+<% else %>
+    <p>Add a question!</p>
+<% end %>
