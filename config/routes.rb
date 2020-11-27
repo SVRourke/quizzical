@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   end
   
   resources :quizzes, except: [:new, :show, :edit, :create, :update, :destroy] do
+    member do
+      post 'publish', to: 'quizzes#publish'
+    end
     resources :questions
   end
   
