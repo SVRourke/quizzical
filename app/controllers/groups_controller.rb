@@ -4,6 +4,7 @@ class GroupsController < ApplicationController
     end
 
     def show
+        @group= Group.find(params[:id])
     end
 
     def new
@@ -11,6 +12,8 @@ class GroupsController < ApplicationController
 
     def create
         @group = Group.create(group_params)
+        @group.teacher = current_user
+        redirect_to group_path(@group)
     end
 
     def edit
