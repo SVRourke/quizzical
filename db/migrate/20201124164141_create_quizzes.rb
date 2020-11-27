@@ -3,6 +3,7 @@ class CreateQuizzes < ActiveRecord::Migration[6.0]
     create_table :quizzes do |t|
       t.string :name
       t.belongs_to :group
+      t.boolean :published
       t.timestamps
 
     end
