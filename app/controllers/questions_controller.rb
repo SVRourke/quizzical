@@ -8,9 +8,7 @@ class QuestionsController < ApplicationController
     end
 
     def create
-        5.times {puts "+"}
-        puts question_params
-        5.times {puts "+"}
+        @question = Question.create(question_params)
         redirect_back fallback_location: '/'
     end
 
