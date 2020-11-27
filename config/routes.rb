@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :new, :create, :update, :destroy]
   resource :dashboards, only: :show
   
-  resources :groups, only: [:index, :new, :create] do
+  resources :groups, only: [:index, :new, :create, :show] do
     resources :enrollments, only: :create
   end
 
