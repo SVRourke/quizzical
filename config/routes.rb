@@ -15,9 +15,12 @@ Rails.application.routes.draw do
   
   resources :groups, only: [:index, :new, :create, :show] do
     resources :enrollments, only: :create
+    resources :quizzes, only: [:new, :create, :show]
   end
-
   
+  resources :quizzes, except: [:new, :show, :edit, :create, :update, :destroy] do
+    resources :questions
+  end
   
 end
 
