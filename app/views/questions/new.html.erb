@@ -1,4 +1,6 @@
 <h1><%= @quiz.name %></h1>
+<%= button_to "Publish!", [:publish, @quiz] %>
+
 
 <%= form_for [@quiz, @question] do |f| %>
     <%= f.hidden_field :quiz_id, value: @quiz.id %>
@@ -7,9 +9,6 @@
     <%= f.fields_for :answers do |answer_form| %>
         <%= render 'answer_fields', :f => answer_form %>
     <% end %>
-        
-
-    
 
     <%= f.submit "Add Question" %>
 <% end %>
