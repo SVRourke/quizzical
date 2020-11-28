@@ -1,7 +1,7 @@
 <h1><%= @quiz.name %></h1>
 
 <%= form_for [@quiz, @result] do |f| %>
-
+    <%= f.hidden_field :quiz_id, value: @quiz.id%>
     <% @quiz.questions.each do |q| %>
         <h3><%= q.content %></h3>
         <%= f.collection_check_boxes :answers, q.answers, :id, :content do |cb| %>
