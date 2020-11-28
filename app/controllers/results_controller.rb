@@ -6,4 +6,11 @@ class ResultsController < ApplicationController
             @result.answers.build()
         end
     end
+
+    private
+
+    def result_params
+        params.require(:result).permit(:quiz_id, answers: [])
+    end
 end
+
