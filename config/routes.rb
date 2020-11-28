@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       post 'publish', to: 'quizzes#publish'
     end
     resources :questions, only: [:new, :create, :destroy]
+    resources :results, only: [:new, :create]
   end
   
 end
