@@ -7,6 +7,11 @@ class ResultsController < ApplicationController
         end
     end
 
+    def create
+        @result = Result.create(result_params)
+        redirect_to :dashboards
+    end
+
     private
 
     def result_params
