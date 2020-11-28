@@ -23,7 +23,7 @@ class QuizzesController < ApplicationController
     end
 
     def show
-        @quiz = Quiz.find(params[:quiz])
+        @quiz = Quiz.find(params[:id])
     end
 
     private
