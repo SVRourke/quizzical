@@ -22,6 +22,10 @@ class QuizzesController < ApplicationController
         redirect_to group_path(@quiz.group)
     end
 
+    def show
+        @quiz = Quiz.find(params[:quiz])
+    end
+
     private
     
     def quiz_params
