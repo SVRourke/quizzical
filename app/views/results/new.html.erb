@@ -4,9 +4,10 @@
     <%= f.hidden_field :quiz_id, value: @quiz.id%>
     <% @quiz.questions.each do |q| %>
         <h3><%= q.content %></h3>
-        <%= f.collection_check_boxes :answers, q.answers, :id, :content do |cb| %>
-            <%= cb.check_box %><%= cb.label%><br>
-        <% end %><br>
+        <%= f.collection_radio_buttons :answers, q.answers, :id, :content %>
+        <%# <%= f.collection_check_boxes :answers, q.answers, :id, :content do |cb| %> %>
+            <%# <%= cb.check_box %><%#= cb.label<br> %> %>
+        <%# <% end %><br> %>
     <% end %>
     
     <%= f.submit "Submit Quiz" %>
