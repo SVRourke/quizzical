@@ -1,0 +1,14 @@
+<h1><%= @quiz.name %></h1>
+
+<%= form_for [@quiz, @result] do |f| %>
+
+    <% @quiz.questions.each do |q| %>
+        <h3><%= q.content %></h3>
+        <%= f.collection_check_boxes :answers, q.answers, :id, :content do |cb| %>
+            <%= cb.check_box %><%= cb.label%><br>
+        <% end %><br>
+    <% end %>
+    
+    <%= f.submit "Submit Quiz" %>
+
+<% end %>
