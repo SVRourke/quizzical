@@ -63,28 +63,28 @@ groups.first.quizzes << quizzes.first
 groups.last.quizzes << quizzes.last
 
 # create results for students
-students[0..1].each do |st|
-    res = st.results.build(quiz: quizzes.first)
+# students[0..1].each do |st|
+#     res = st.results.build(quiz: quizzes.first)
     
-    quizzes.first.questions.each do |qn|
-        if res.answers.count <= qn.answers.count - 3
-            res.answers << qn.answers.sample
-        else
-            res.answers << qn.answers.last
-        end
-    end
-    st.save
-end
+#     quizzes.first.questions.each do |qn|
+#         if res.answers.count <= qn.answers.count - 3
+#             res.answers << qn.answers.sample
+#         else
+#             res.answers << qn.answers.last
+#         end
+#     end
+#     st.save
+# end
 
-students[2..3].each do |st|
-    res = st.results.build(quiz: quizzes.last)
+# students[2..3].each do |st|
+#     res = st.results.build(quiz: quizzes.last)
 
-    quizzes.last.questions.each do |qn|
-        if res.answers.count <= qn.answers.count - 1
-            res.answers << qn.answers.sample
-        else
-            res.answers << qn.answers.last
-        end
-    end
-    st.save
-end
+#     quizzes.last.questions.each do |qn|
+#         if res.answers.count <= qn.answers.count - 1
+#             res.answers << qn.answers.sample
+#         else
+#             res.answers << qn.answers.last
+#         end
+#     end
+#     st.save
+# end
