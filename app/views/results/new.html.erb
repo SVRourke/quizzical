@@ -1,26 +1,14 @@
-<h1><%= @quiz.name %></h1>
+<h1><%= @result.quiz.name %></h1>
 
-<%= form_for [@quiz, @result] do |f| %>
-    <%= f.hidden_field :quiz_id, value: @quiz.id%>
-
-    <% @quiz.questions.each do |q| %>
-        <%= q.content %>
-        <%= f.collection_check_boxes :answers, q.answers, :id, :content %>
+<%= form_for @result, url: quiz_results_path(@result.quiz) do |f| %>
+    <%= f.hidden_field :quiz_id %>
+    <%= f.fields_for :answered_questions do |aq| %>
+        <%= aq.hidden_field :question_id %>
+        <%= aq.object.question.content %><br>
+            <%= aq.collection_radio_buttons :answer_id, aq.object.question.answers, :id, :content %>
+        <br>
     <% end %>
 
-
-
-
-    <%# <% @quiz.questions.each do |q| %> %>
-        <%# <h3><%= q.content %></h3> %>
-        <%# <%= f.collection_radio_buttons :answers, q.answers, :id, :content %> %>
-        <%# <%= f.collection_check_boxes q, q.answers, :id, :content do |cb| %> %>
-        <%# <%= f.collection_check_boxes :answers, q.answers, :id, :content do |cb| %> %>
-            <%# <%= cb.check_box %> %>
-            <%# <%= cb.label %> %>
-        <%# <% end%><br> %> %>
-    <%# <% end %> %>
-    
     <%= f.submit "Submit Quiz" %>
 
 <% end %>
