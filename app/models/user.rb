@@ -18,4 +18,8 @@ class User < ApplicationRecord
     has_many :teachers, through: :enrolled_classes, source: :teacher
     has_many :results
 
+    def full_name
+        "#{first_name} #{last_name}"
+    end
+
 end
