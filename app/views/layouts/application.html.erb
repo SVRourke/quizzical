@@ -10,26 +10,9 @@
   </head>
 
   <body>
+    <%= render "layouts/nav_menu" %>
 
-    <% if session[:user_id] %>
-      <%= user_greeting(@user) %>
-      <%= button_to "logout", logout_path, method: 'delete' %>
-    <% else%>
-      <%= link_to 'Log In', login_path %>
-      <%= link_to 'Sign Up', sign_up_path %>
-    <% end %>
-    
-    <%# If logged in and teacher %>
-    <%#= link_to "Create a class!", :new_group %>
-    <%# If logged in and student %>
-    <%#= link_to "Find A Group", groups_path %>
-
-    <%# if on adding questions page %>
-    <%# <%= button_to "Publish!", [:publish, @quiz] %> %>
-
-
-
-    <%# Yield to a View %>
+        <%# Yield to a View %>
     <%= yield %>
 
   </body>
