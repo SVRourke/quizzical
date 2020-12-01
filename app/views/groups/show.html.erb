@@ -5,7 +5,7 @@
 <ul>
     <% @group.quizzes.each do |q| %>
         <li>
-            <%= link_to q.name, group_quiz_path(@group, q) %>
+            <%= link_to q.name, new_quiz_result_path(q) %>
         </li>
     <% end %>
 </ul>
