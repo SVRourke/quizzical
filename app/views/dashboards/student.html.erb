@@ -1,29 +1,5 @@
-<h3>Groups:</h3>
-<ul>
-    <% @user.enrolled_classes.each do |c| %>
-        <li>
-            <%= c.teacher.last_name %>: <%= c.name %><br>
-            Quizzes: <%= c.quizzes.count %>
-        </li>
-    <% end %>
-</ul>
+<h3>Classes:</h3>
 
-<h3>Quizzes Due:</h3>
-<ul>
-    <% @user.assigned_quizzes.each do |q| %>
-        <li>
-            <%= q.name %><br>
-            <%= q.group.teacher.last_name %>
-        </li>
-    <% end %>
-</ul>
-
-<h3>Completed Quizzes:</h3>
-<ul>
-    <% @user.results.each do |q| %>
-        <li>
-            Quiz: <%= q.quiz.name %><br>
-            Grade: <%= q.grade.to_i %>%
-        </li>
-    <% end %>
-</ul>
+<% @user.enrolled_classes.each do |c| %>
+    <%= render partial: "group_chunk", :locals => {group: c} %>
+<% end %>
