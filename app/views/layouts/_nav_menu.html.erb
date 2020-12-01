@@ -1,0 +1,18 @@
+<% if logged_in? %>
+    <h3><%= user_greeting(current_user) %></h3>
+
+    <%= link_to "Dashboard", dashboards_path %>
+    
+    <% if current_user.teacher %>
+        <%= link_to "New Class", new_group_path %>
+    <% else %>
+        <%= link_to "Find A Class", groups_path %>
+    <% end %>
+
+    <%= link_to "logout", logout_path, method: 'delete' %>
+
+<% else%>
+    <%= link_to 'Log In', login_path %>
+    <%= link_to 'Sign Up', sign_up_path %>
+<% end %>
+    
