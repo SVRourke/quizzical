@@ -12,6 +12,7 @@
   <body>
 
     <% if session[:user_id] %>
+      <%= user_greeting(@user) %>
       <%= button_to "logout", logout_path, method: 'delete' %>
     <% else%>
       <%= link_to 'Log In', login_path %>
