@@ -7,19 +7,25 @@ class ResultsController < ApplicationController
     end
 
     def create
-        @result = Quiz.find(result_params).results.build(result_params)
+        @result = Result.new(result_params)
         @result.user = current_user
 
         if @result.save
             redirect_to dashboards_path
         else
-            puts @result.errors.full_messages
+            redirect_back fallback_location: dashboards_path  
         end
     end
 
     private
 
     def result_params
-        params.require(:result).permit( :quiz_id, answered_questions_attributes: [:answer_id, :question_id])
+        params.require(:result).permit(
+            :quiz_id, 
+            answered_questions_attributes: [
+                :answer_id, 
+                :question_id
+                ]
+            )
     end
 end
