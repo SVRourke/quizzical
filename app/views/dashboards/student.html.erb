@@ -1,5 +1,3 @@
-<h1>Hello <%= @user.first_name %></h1>
-<%= link_to "Find A Group", groups_path %>
 <h3>Groups:</h3>
 <ul>
     <% @user.enrolled_classes.each do |c| %>
