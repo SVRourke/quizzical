@@ -9,5 +9,6 @@ class Group < ApplicationRecord
         :association_foreign_key => 'group_id'
 
     has_many :quizzes
+    has_many :results, through: :quizzes
 end
 
