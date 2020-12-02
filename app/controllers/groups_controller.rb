@@ -5,6 +5,12 @@ class GroupsController < ApplicationController
 
     def show
         @group= Group.find(params[:id])
+
+        if current_user.teacher
+            render :teacher_view_group
+        else
+            render :student_view_group
+        end
     end
 
     def new
