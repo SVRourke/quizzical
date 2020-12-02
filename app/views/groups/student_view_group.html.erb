@@ -1,0 +1,9 @@
+<%# show list of unattempted quizzes link_to new_result %>
+<%# show list of taken quizzes with grades %>
+<h1><%= @group.name %></h1>
+<h3><%= @group.teacher.last_name %></h3>
+
+<h2>Quizzes</h2>
+<% @group.quizzes.ready.chrono.each do |q| %>
+        <%= link_to q.name, new_quiz_result_path(q) %>
+<% end %>
