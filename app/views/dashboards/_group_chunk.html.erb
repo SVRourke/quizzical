@@ -4,5 +4,5 @@
 <p>
     Quizzes Total: <%= group.quizzes.published.count %>, 
     Due: <%= group.quizzes.published.count - group.results.where(user: current_user).count %>, 
-    Completed: <%= group.results.where(user: current_user).count %>
+    Completed: <%= group.quizzes.collect{|q| q.completed_by(current_user)}.count %>
 </p>
