@@ -1,6 +1,6 @@
 class Quiz < ApplicationRecord
-    scope :published, -> { where("published == true")}
-    # scope :completed
+    scope :ready, -> { where("published == true")}
+    scope :chrono, -> { order(created_at: :desc)}
 
     has_many :questions
     belongs_to :group
