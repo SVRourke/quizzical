@@ -11,4 +11,12 @@ module GroupHelper
         end
     end
 
+    def student_results_count(quiz)
+        result_count = quiz.results.count
+        result_count == 1 ? stub = "1 Student has" : stub = "#{result_count} Students have"
+        return "#{stub} taken this quiz."
+    end
+
+
+
 end
