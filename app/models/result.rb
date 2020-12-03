@@ -7,5 +7,10 @@ class Result < ApplicationRecord
     has_many :answers, through: :answered_questions
 
     accepts_nested_attributes_for :answered_questions
- 
+
+    def grade
+        correct = answers.where(correct_answer: true).count
+        percentage = (correct.to_f / answers.count.to_f) * 100
+        return "#{percentage.to_i}%"
+    end
 end
