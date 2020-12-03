@@ -43,3 +43,4 @@ todos.md
 .browserslistrc
 .ruby-version
 .vscode/settings.json
+.env
