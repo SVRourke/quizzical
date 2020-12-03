@@ -1,6 +1,6 @@
 Rails.application.config.session_store(
     :cookie_store,
     # DOTENV MAKE SECURE
-    :key => '_foo_session',
+    :key => ENV["SESSION_SECRET"],
     :expire_after => 100.minutes,
 )
