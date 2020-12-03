@@ -12,5 +12,6 @@
 <%# MAKE INTO PARTIAL %>
 <h2>Finished Quizzes</h2>
 <% finished_quizzes(@group, current_user).each do |q| %>
-    <%= q.name %>
+    Title: <%= q.name %><br>
+    Grade: <%= q.results.where(user: current_user).first.grade %>
 <% end %>
