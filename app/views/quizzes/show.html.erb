@@ -1,0 +1,16 @@
+<h3>Title: <%= @quiz.name %></h3>
+<p>Questions: <%= @quiz.questions.count %></p>
+<br>
+<h3>Student Results</h3>
+<% @quiz.results.each do |r| %>
+    <p><%= r.user.full_name %> Grade: <%= r.grade %></p>
+    <p></p>
+<% end %>
+
+<%# NOVE TO PARTIAL? %>
+<h3>Unattempted</h3>
+<% @quiz.group.students.each do |s| %>
+    <% if s.results.none? { |r| r.quiz == @quiz } %>
+        <p><%= s.full_name %></p>
+    <% end %>
+<% end %>
