@@ -4,5 +4,5 @@
 <p>
     Quizzes Total: <%= group.quizzes.ready.count %>, 
     Due: <%= group.quizzes.ready.count - group.results.where(user: current_user).count %>, 
-    Completed: <%= group.quizzes.collect{|q| q.completed_by(current_user)}.count %>
+    Completed: <%= group.quizzes.filter {|q| q.completed_by(current_user)}.count %>
 </p>
