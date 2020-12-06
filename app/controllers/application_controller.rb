@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+    include Pundit
+
     def current_user
         @user ||= User.find(session[:user_id])
     end
