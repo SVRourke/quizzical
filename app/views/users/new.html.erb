@@ -1,3 +1,10 @@
+<% if flash[:alert] %>
+    <%= flash[:alert].each do |key, value| %>
+    <%# <% @user.errors.messages.each do |msg| %>
+        <p><%= value[0] %></p>
+    <% end %>
+<% end %>
+
 <%= form_for @user do |f| %>
     <%= f.label :first_name, "First Name:" %><br>
     <%= f.text_field :first_name %><br>
