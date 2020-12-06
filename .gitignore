@@ -39,7 +39,6 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
-todos.md
 .browserslistrc
 .ruby-version
 .vscode/settings.json
