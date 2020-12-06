@@ -9,7 +9,9 @@ class UsersController < ApplicationController
         session[:user_id] = @user.id
         redirect_to dashboards_path
     else
-        redirect_back
+      flash[:alert] = @user.errors.messages
+      
+      redirect_back fallback_location: new_user_path()
     end
   end
 
