@@ -1,5 +1,8 @@
 class QuestionsController < ApplicationController
+    after_action :verify_authorized
+
     def new
+        authorize Question, :new?
         @quiz = Quiz.find(params[:quiz_id])
         @question = Question.new
         4.times do
@@ -8,12 +11,15 @@ class QuestionsController < ApplicationController
     end
 
     def create
+        authorize Question, :create?
         @question = Question.create(question_params)
         redirect_back fallback_location: '/'
     end
 
     def destroy
-        Question.find(params[:id]).destroy
+        @question = Question.find(params[:id])
+        authorize @question
+        @question.destroy
         redirect_to new_quiz_question_path(params[:quiz_id])
     end
 
