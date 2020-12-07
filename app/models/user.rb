@@ -8,6 +8,8 @@ class User < ApplicationRecord
     validates :email, presence: true, uniqueness: true
     
     # password for presence, length and presence of special characters
+    validates :password, presence: true, length: {minimum: 8}
+    
 
     # Teacher Relationships
     has_many :group_admins
