@@ -1,10 +1,14 @@
 class QuizzesController < ApplicationController
+    after_action :verify_authorized
+
     def new
+        authorize Quiz, :new?
         @group = Group.find(params[:group_id])
         @quiz = Quiz.new
     end
 
     def create
+        authorize Quiz, :create?
         @quiz = Quiz.new(quiz_params)
         @group = Group.find(params[:group_id]) 
         @quiz.group = @group
@@ -17,12 +21,14 @@ class QuizzesController < ApplicationController
     end
 
     def publish
+        authorize Quiz, :publish?
         @quiz = Quiz.find(params[:id])
         @quiz.update(published: true)
         redirect_to group_path(@quiz.group)
     end
 
     def show
+        authorize Quiz, :show?
         @quiz = Quiz.find(params[:id])
     end
 
