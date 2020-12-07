@@ -6,6 +6,7 @@ class GroupPolicy < ApplicationPolicy
   end
 
   def index?
+    !user.teacher?
   end
 
   def show?
