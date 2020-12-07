@@ -7,6 +7,10 @@ class Result < ApplicationRecord
     has_many :answers, through: :answered_questions
 
     accepts_nested_attributes_for :answered_questions
+    
+    # a user may only have one result for a given quiz
+    validates_with ResultValidator
+
 
     def grade
         correct = answers.where(correct_answer: true).count
