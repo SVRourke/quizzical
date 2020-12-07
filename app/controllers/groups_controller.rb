@@ -1,6 +1,8 @@
 class GroupsController < ApplicationController
-    after_action :verify_authorized, except: :index
+    after_action :verify_authorized
+
     def index
+        authorize Group, :index
         @groups = Group.all
     end
 
