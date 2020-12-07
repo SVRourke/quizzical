@@ -33,6 +33,3 @@ VALIDATIONS
         -content unique for a given quiz
     RESULT Model
         -a user may only have one result for a given quiz
-    
-    
-    
