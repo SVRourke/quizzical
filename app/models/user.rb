@@ -1,17 +1,18 @@
 class User < ApplicationRecord
     has_secure_password
 
+    
+
     # VALIDATIONS
-    validates :first_name, presence: true, message: 'Must have a first name!'
-    validates :last_name, presence: true, message: 'Must have a last name!'
+    validates :first_name, presence: {message: 'Must have a first name!'}
+    validates :last_name, presence: {message: 'Must have a last name!'}
     # email is present and unique and an email (can be simple format check)
-    validates :email, presence: true, message: 'Must have an email!'
-    validates :email, uniqueness: true, message: 'Email already in use!'
+    validates :email, presence: {message: 'Must have an email!'}
+    validates :email, uniqueness: {message: 'Email already in use!'}
     
     # password for presence, length and presence of special characters
-    validates :password, presence: true, message: 'Must have a password!' 
-    validates :password, length: {minimum: 8}, message: 'Password must be at least 8 characters long.'
-
+    validates :password, presence: {message: 'Must have a password!'}
+    validates :password, length: {minimum: 8}
 
     # Teacher Relationships
     has_many :group_admins
