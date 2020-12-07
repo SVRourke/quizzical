@@ -1,4 +1,5 @@
 class ResultsController < ApplicationController
+    before_action :unauthorized_redirect
     after_action :verify_authorized
 
     def new
