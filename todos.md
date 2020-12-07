@@ -6,9 +6,7 @@ LAYOUT
 BIG CHANGES
     ADD VALIDATIONS
     ADD FLASH and ALERT messages for failures
-    ADD PUNDIT authorization
     ADD OAuth
-    Redirect to dash from root if logged in
 
 VALIDATIONS
     USER MODEL
