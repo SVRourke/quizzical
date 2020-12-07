@@ -1,5 +1,8 @@
 class ResultsController < ApplicationController
+    after_action :verify_authorized
+
     def new
+        authorize Result, :new?
         @result = Quiz.find(params[:quiz_id]).results.build()
         @result.quiz.questions.each do |q|
             @result.answered_questions.build(question: q)
@@ -7,6 +10,7 @@ class ResultsController < ApplicationController
     end
 
     def create
+        authorize Result, :create?
         @result = Result.new(result_params)
         @result.user = current_user
 
