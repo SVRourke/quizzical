@@ -7,8 +7,7 @@
 <% end %>
 
 
-<%= form_for [@group, @quiz] do |f| %>
+<%= form_for @quiz, url: group_quizzes_path() do |f| %>
     <%= f.text_field :name %>
     <%= f.submit "Add Questions" %>
-
 <% end %>
