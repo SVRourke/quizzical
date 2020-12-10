@@ -14,7 +14,13 @@ class QuestionsController < ApplicationController
     def create
         authorize Question, :create?
         @question = Question.create(question_params)
-        redirect_back fallback_location: '/'
+
+        if @question.valid?
+            redirect_to new_quiz_question_path(@question.quiz)
+        else
+            @quiz = @question.quiz
+            render :new
+        end
     end
 
     def destroy
