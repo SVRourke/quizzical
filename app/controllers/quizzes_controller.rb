@@ -17,7 +17,7 @@ class QuizzesController < ApplicationController
             # redirect to quiz questions
             redirect_to new_quiz_question_path(@quiz)
         else
-            redirect_back fallback_location: group_path(@group)
+            render :new
         end
     end
 
