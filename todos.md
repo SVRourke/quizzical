@@ -13,8 +13,6 @@ VALIDATIONS
         -name, unique in user's groups
     GROUPADMIN MODEL
         -uniqueness
-    QUIZ MODEL
-        -name is unique within the given group
     GROUPSUSERS
         -uniqueness
         -a user cannot be a user of a group and a teacher of the same group
