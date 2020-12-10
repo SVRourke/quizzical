@@ -1,4 +1,6 @@
-<%= f.label :content , "Answer:"%><br>
-<%= f.text_field :content %>
-<%= f.label :correct_answer , "Correct Answer?"%>
-<%= f.check_box :correct_answer, checked_value: true, unchecked_value: false %><br><br>
+<%= f.fields_for :answers do |answer_form| %>
+        <%= answer_form.label :content , "Answer:"%><br>
+        <%= answer_form.text_field :content %>
+        <%= answer_form.label :correct_answer , "Correct Answer?"%>
+        <%= answer_form.check_box :correct_answer, checked_value: true, unchecked_value: false %><br><br>
+<% end %>
