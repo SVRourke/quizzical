@@ -3,12 +3,13 @@
 
 
 <%= form_for [@quiz, @question] do |f| %>
+    <%= render 'quiz_errors', :record => @question %>
+
     <%= f.hidden_field :quiz_id, value: @quiz.id %>
     <%= f.label :content, "Question Content:" %><br>
     <%= f.text_field :content %><br><br>
-    <%= f.fields_for :answers do |answer_form| %>
-        <%= render 'answer_fields', :f => answer_form %>
-    <% end %>
+
+    <%= render 'answer_fields', :f => f %>
 
     <%= f.submit "Add Question" %>
 <% end %>
@@ -16,20 +17,7 @@
 
 
 <% if @quiz.questions.any? %>
-    <ol>
-        <% @quiz.questions.each do |q| %>
-            <li><%= q.content %>
-                <%= button_to "Remove", {action: 'destroy', quiz_id: @quiz.id, id: q.id}, method: 'delete' %>
-                <ul>
-                    <% q.answers.each do |a| %>
-                        <li>
-                            <%= a.content %><%= " -correct answer" if a.correct_answer %>
-                        </li>
-                    <% end %>
-                </ul>
-            </li>
-        <% end %>
-    </ol>
+    <%= render 'added_questions', record: @quiz %>
 <% else %>
     <p>Add a question!</p>
 <% end %>
