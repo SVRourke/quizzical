@@ -1,0 +1,9 @@
+<% if record.errors.any? %>
+    <div class="errors">
+        <ul>
+            <% record.errors.full_messages.each do |e| %>
+                <li><%= e %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
