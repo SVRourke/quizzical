@@ -5,7 +5,9 @@ class Quiz < ApplicationRecord
     has_many :questions
     belongs_to :group
     has_many :results
-
+    
+    validates_with QuizValidator
+    
     def completed_by(user)
         results.any? do |r|
             r.user == user
