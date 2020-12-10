@@ -10,11 +10,11 @@ class QuizzesController < ApplicationController
 
     def create
         authorize Quiz, :create?
+        
         @quiz = Quiz.new(quiz_params)
-        @group = Group.find(params[:group_id]) 
-        @quiz.group = @group
+        @quiz.group = Group.find(params[:group_id])
+
         if @quiz.save
-            # redirect to quiz questions
             redirect_to new_quiz_question_path(@quiz)
         else
             render :new
