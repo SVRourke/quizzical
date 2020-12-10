@@ -1,24 +1,17 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 
 # Create two teachers
 teachers = User.create([
-        {first_name: "Sharain", last_name: "Lark", email: "slark@school.com", teacher: true, password: "password"},
-        {first_name: "Sam", last_name: "Rourke", email: "srourke@school.com", teacher: true, password: "password"}
+        {first_name: "Teacher 1", last_name: "Lastname", email: "teacher1@test.com", teacher: true, password: "password1"},
+        {first_name: "Teacher 2", last_name: "Lastname", email: "teacher2@test.com", teacher: true, password: "password1"}
         ])
 
 # Create 4 students
 students = User.create(
     [
-        {first_name: "Student 1", last_name: "last_name", email: "s1@test.com", password: "password"},
-        {first_name: "Student 2", last_name: "last_name", email: "s2@test.com", password: "password"},
-        {first_name: "Student 3", last_name: "last_name", email: "s3@test.com", password: "password"},
-        {first_name: "Student 4", last_name: "last_name", email: "s4@test.com", password: "password"}
+        {first_name: "Student 1", last_name: "last_name", email: "s1@test.com", password: "password1"},
+        {first_name: "Student 2", last_name: "last_name", email: "s2@test.com", password: "password1"},
+        {first_name: "Student 3", last_name: "last_name", email: "s3@test.com", password: "password1"},
+        {first_name: "Student 4", last_name: "last_name", email: "s4@test.com", password: "password1"}
     ]
 )
 # Create two Groups
