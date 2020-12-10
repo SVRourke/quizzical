@@ -4,7 +4,6 @@ LAYOUT
     -helper to change page title depending on page
 
 BIG CHANGES
-    ADD VALIDATIONS
     ADD FLASH and ALERT messages for failures
     ADD OAuth
 
