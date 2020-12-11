@@ -7,3 +7,5 @@ BIG CHANGES
     ADD OAuth
 
 MAKE PARTIALS
+
+add container to views
