@@ -18,20 +18,24 @@ class GroupsController < ApplicationController
 
     def new
         authorize Group, :new?
+        @group = Group.new
+
     end
 
     def create
         authorize Group, :create?
-        @group = current_user.taught_classes.build(group_params)
-        @group.save()
 
-        redirect_to group_path(@group)
-    end
+        @group = Group.new
+        @group.teacher = current_user
+        @group.update(group_params)
+    
 
-    def edit
-    end
+        if @group.save()
+            redirect_to group_path(@group)
+        end
 
-    def update
+        render :new
+
     end
 
     def destroy
@@ -40,7 +44,7 @@ class GroupsController < ApplicationController
     private
 
     def group_params
-        params.require(:group).permit(:name, :teacher)
+        params.require(:group).permit(:name)
     end
     
 end
