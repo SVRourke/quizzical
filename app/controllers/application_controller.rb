@@ -4,7 +4,10 @@ class ApplicationController < ActionController::Base
     def unauthorized_redirect
         redirect_to :root if !logged_in?
     end
-            
+
+    def authorized_redirect
+        redirect_to :dashboards if logged_in?
+    end            
 
     def current_user
         @user ||= User.find(session[:user_id])
