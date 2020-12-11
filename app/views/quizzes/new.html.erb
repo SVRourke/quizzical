@@ -1,13 +1,7 @@
 <h1>Create a Quiz!</h1>
 
-<% if @quiz.errors.any? %>
-    <% @quiz.errors.full_messages.each do |m| %>
-        <%= m %>
-    <% end %>
-<% end %>
-
-
 <%= form_for @quiz, url: group_quizzes_path() do |f| %>
+    <%= render 'shared/validation_errors', :record => @quiz %>
     <%= f.text_field :name %>
     <%= f.submit "Add Questions" %>
 <% end %>

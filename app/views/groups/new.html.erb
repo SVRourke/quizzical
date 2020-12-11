@@ -1,13 +1,7 @@
 <h1>Create A Group:</h1>
 
 <%= form_for @group do |f| %>
-    <%# MAKE PARTIAL %>
-    <% if @group.errors.any? %>
-        <% @group.errors.full_messages.each do |m| %>
-            <p><%= m %></p>
-        <% end %>
-    <% end %>
-
+    <%= render 'shared/validation_errors', :record => @group %>
     <%= f.label "Group Name: ", :name%><br>
     <%= f.text_field :name %><br>
     <%= f.submit "Create Group" %>

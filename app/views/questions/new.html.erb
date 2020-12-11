@@ -3,7 +3,7 @@
 
 
 <%= form_for [@quiz, @question] do |f| %>
-    <%= render 'quiz_errors', :record => @question %>
+    <%= render 'shared/validation_errors', :record => @question %>
 
     <%= f.hidden_field :quiz_id, value: @quiz.id %>
     <%= f.label :content, "Question Content:" %><br>

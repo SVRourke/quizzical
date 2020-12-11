@@ -1,6 +1,7 @@
 <h1><%= @result.quiz.name %></h1>
 
 <%= form_for @result, url: quiz_results_path(@result.quiz) do |f| %>
+    <%= render 'shared/validation_errors', :record => @result %>
     <%= f.hidden_field :quiz_id %>
     <%= f.fields_for :answered_questions do |aq| %>
         <%= aq.hidden_field :question_id %>
