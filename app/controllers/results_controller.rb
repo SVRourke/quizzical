@@ -10,7 +10,6 @@ class ResultsController < ApplicationController
         end
     end
     
-    # REFACTOR FOR VALIDATIONS
     def create
         authorize Result, :create?
         @result = Result.new(result_params)
@@ -19,6 +18,7 @@ class ResultsController < ApplicationController
         if @result.save
             redirect_to dashboards_path and return
         end
+
         render :new
     end
 
