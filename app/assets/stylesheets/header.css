@@ -1,0 +1,21 @@
+header {
+    display: flex;
+    padding-top: 4em;
+    color: white;
+    background-color: rgb(41,46,105);
+    flex-direction: column;
+}
+header h1 {
+    font-size: 2em;
+    padding-left: .5em;
+    margin-bottom: 1em;
+}
+header nav {
+    margin-top: auto;
+    background-color: #cacaca;
+    padding: .5em 0 .5em 1em;
+}
+header nav a {
+    text-decoration: none;
+    margin-right: 1em;
+}
