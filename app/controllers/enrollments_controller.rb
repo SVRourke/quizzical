@@ -2,19 +2,15 @@ class EnrollmentsController < ApplicationController
     before_action :unauthorized_redirect
     after_action :verify_authorized
 
-    def new
-        authorize enrollment, :new?
-    end
-    # REFACTOR FOR VALIDATION
     def create
         authorize :enrollment, :create?
-        if current_user.enrolled_classes.exists?(params[:group_id])
-            # add an alert
-            redirect_to groups_path
-        else
+        if !current_user.enrolled_classes.exists?(params[:group_id])
             current_user.enrolled_classes << Group.find(params[:group_id])
-            redirect_to dashboards_path
+            redirect_to dashboards_path and return
         end
+
+        flash.notice = "You are already in that class"
+        redirect_to groups_path
     end
 
 end
