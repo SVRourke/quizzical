@@ -8,7 +8,6 @@ class QuizzesController < ApplicationController
         @quiz = Quiz.new
     end
     
-    # REFACTOR? params?
     def create
         authorize Quiz, :create?
         
@@ -22,7 +21,6 @@ class QuizzesController < ApplicationController
         render :new
     end
 
-    # REFACTOR
     def publish
         authorize Quiz, :publish?
         @quiz = Quiz.find(params[:id])
@@ -30,7 +28,6 @@ class QuizzesController < ApplicationController
         redirect_to group_path(@quiz.group)
     end
     
-    # Finish View
     def show
         authorize Quiz, :show?
         @quiz = Quiz.find(params[:id])
