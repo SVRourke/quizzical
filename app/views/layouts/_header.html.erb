@@ -1,5 +1,16 @@
+<header>
+  <%# <h1>Good Morning, s</h1>   %>
+  <nav>
+    <%# <a href="">Dashboard</a>
+    <a href="">Find A Class</a>
+    <a href="">logout</a> %>
+  </nav>
+</header>
+
+
+<h3><%= user_greeting() %></h3>
+
 <% if logged_in? %>
-    <h3><%= user_greeting(current_user) %></h3>
 
     <%= link_to "Dashboard", dashboards_path %>
     
