@@ -9,17 +9,17 @@ class ResultsController < ApplicationController
             @result.answered_questions.build(question: q)
         end
     end
-
+    
+    # REFACTOR FOR VALIDATIONS
     def create
         authorize Result, :create?
         @result = Result.new(result_params)
         @result.user = current_user
 
         if @result.save
-            redirect_to dashboards_path
-        else
-            redirect_back fallback_location: dashboards_path  
+            redirect_to dashboards_path and return
         end
+        render :new
     end
 
     private
