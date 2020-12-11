@@ -6,12 +6,13 @@ class SessionsController < ApplicationController
     def create
         @user = User.find_by(email: params[:email])
 
-        if @user.authenticate(params[:password])
+        if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id
             redirect_to dashboards_path and return
         end
 
-        redirect_back(fallback_location: root_path)
+        flash.notice = "Incorrect Login..."
+        redirect_back fallback_location: :root
     end
 
     def destroy
