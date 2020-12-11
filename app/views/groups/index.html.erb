@@ -1,5 +1,7 @@
 <h1>Enroll in a Class: </h1>
 
+<%= render "shared/flash_notice" %><br>
+
 <% @groups.each do |g| %>
     <%= link_to "Enroll: #{g.name } -#{g.teacher.last_name}", group_enrollments_path(g), method: 'post' %><br><br>
 <% end %>
