@@ -1,8 +1,10 @@
 <% if record.errors.any? %>
     <div class="errors">
         <ul>
-            <% record.errors.full_messages.each do |e| %>
-                <li><%= e %></li>
+            <% record.errors.messages.values.each do |msg| %>
+                <% msg.each do |m| %>
+                    <li><%= m %></li>
+                <% end %>
             <% end %>
         </ul>
     </div>
