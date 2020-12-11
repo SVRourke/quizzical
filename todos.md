@@ -17,10 +17,8 @@ VALIDATIONS
 
 
 MAKE PARTIALS
-MAKE SHARED PARTIAL FOR DISPLAYING VALIDATION ERRORS
 
 users_controller - validations
-sessions_controller -messages
 results_controller -validations
 quizzes_controller -refactor
 enrollments_controller -validations & refactor
