@@ -10,7 +10,6 @@ class UsersController < ApplicationController
         session[:user_id] = @user.id
         redirect_to dashboards_path and return
       end
-      
     render :new
   end
 
