@@ -7,7 +7,7 @@ class User < ApplicationRecord
     # email is present and unique and an email (can be simple format check)
     validates :email, presence: {message: 'Must have an email!'}
     validates :email, uniqueness: {message: 'Email already in use!'}
-    validates :email, format: {with: /{\w|\d}*@\w*\.com/, message: "Must use a valid email."}
+    validates :email, format: {with: /\w*@\w*\.com/, message: "Must use a valid email."}
     
     # password for presence, length and presence of special characters
     validates :password, length: {minimum: 8}
