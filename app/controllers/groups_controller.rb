@@ -31,7 +31,7 @@ class GroupsController < ApplicationController
     
 
         if @group.save()
-            redirect_to group_path(@group)
+            redirect_to group_path(@group) and return
         end
 
         render :new
