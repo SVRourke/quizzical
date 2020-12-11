@@ -1,6 +1,10 @@
 module NavigationHelper
-    def user_greeting(user)
-        "Good #{colloquial_time_of_day}, #{user.first_name}"   
+    def user_greeting
+        if logged_in?
+            "Good #{colloquial_time_of_day}, #{current_user.first_name}"
+        else
+            "Welcome to Quizzical"   
+        end
     end
 
     def colloquial_time_of_day
