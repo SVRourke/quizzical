@@ -1,4 +1,6 @@
 class Group < ApplicationRecord
+    validates_with GroupValidator
+
     has_one :group_admin
     has_one :teacher, through: :group_admin, source: :user
 
