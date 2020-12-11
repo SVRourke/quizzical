@@ -10,10 +10,11 @@
   </head>
 
   <body>
-    <%= render "layouts/nav_menu" %>
-
-        <%# Yield to a View %>
-    <%= yield %>
+    <%= render "layouts/header" %>
+    
+    <main class="view-display">
+      <%= yield %>
+    </main>
 
   </body>
 </html>
