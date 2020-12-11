@@ -7,7 +7,8 @@ class QuizzesController < ApplicationController
         @group = Group.find(params[:group_id])
         @quiz = Quiz.new
     end
-
+    
+    # REFACTOR? params?
     def create
         authorize Quiz, :create?
         
@@ -15,19 +16,21 @@ class QuizzesController < ApplicationController
         @quiz.group = Group.find(params[:group_id])
 
         if @quiz.save
-            redirect_to new_quiz_question_path(@quiz)
-        else
-            render :new
+            redirect_to new_quiz_question_path(@quiz) and return
         end
+
+        render :new
     end
 
+    # REFACTOR
     def publish
         authorize Quiz, :publish?
         @quiz = Quiz.find(params[:id])
         @quiz.update(published: true)
         redirect_to group_path(@quiz.group)
     end
-
+    
+    # Finish View
     def show
         authorize Quiz, :show?
         @quiz = Quiz.find(params[:id])
