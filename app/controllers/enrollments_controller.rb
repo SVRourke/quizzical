@@ -5,7 +5,7 @@ class EnrollmentsController < ApplicationController
     def new
         authorize enrollment, :new?
     end
-
+    # REFACTOR FOR VALIDATION
     def create
         authorize :enrollment, :create?
         if current_user.enrolled_classes.exists?(params[:group_id])
