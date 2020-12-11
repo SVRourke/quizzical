@@ -18,7 +18,5 @@ VALIDATIONS
 
 MAKE PARTIALS
 
-users_controller - validations
-results_controller -validations
 quizzes_controller -refactor
 enrollments_controller -validations & refactor
