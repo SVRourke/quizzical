@@ -33,14 +33,19 @@ class User < ApplicationRecord
         "#{first_name} #{last_name}"
     end
 
-    def self.from_omniauth(auth)
-        p auth
-        # where(email: auth.info.email).first_or_initialize do |u|
-        #     u.first_name = auth.info.first_name
-        #     u.last_name = auth.info.last_name
-        #     u.email = auth.info.email
-        #     u.password = SecureRandom.hex
-        # end
+    def self.from_omniauth(auth, teacher_state)
+        if user = find_by_email(auth['email'])
+            return user
+        else
+            return User.create(
+                uid: auth['uid'],
+                first_name: auth['first_name'],
+                last_name: auth['last_name'],
+                email: auth['email'],
+                teacher: teacher_state,
+                password: SecureRandom.hex
+            )
+        end
     end
 
 end
