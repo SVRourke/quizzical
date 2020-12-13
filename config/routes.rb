@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   # Sign Up Routes
   get 'sign-up', to: 'users#new'
   post 'sign-up', to: 'users#create'
+
+  # OAuth Routes
+  get 'auth/:provider/callback', to: 'sessions#GoogleAuth'
+  get 'auth/failure', to: redirect('/')
   
   resources :users, only: [:show, :new, :create, :update, :destroy]
   resource :dashboards, only: :show
