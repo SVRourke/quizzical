@@ -20,4 +20,18 @@ class SessionsController < ApplicationController
         redirect_to root_path
     end
 
+    def GoogleAuth
+        5.times {puts "+"}
+        # puts params[:teacher]
+        puts request.env["omniauth.auth"]
+        5.times {puts "+"}
+
+        access_token = request.env["omniauth.auth"]
+        # user = User.from_omniauth(access_token)
+        # session[:user_id] = user.id
+        # user.google_token = access_token.credentials.token
+        # p user
+        # user.save
+    end
+
 end
