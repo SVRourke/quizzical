@@ -13,3 +13,6 @@
     <%= f.check_box :teacher, checked_value: true, unchecked_value: false %><br><br>
     <%= f.submit "Create Account!" %>
 <% end %>
+
+<%= link_to "Sign up as a Teacher with Google", '/auth/google_oauth2?teacher=true' %>
+<%= link_to "Sign up as a Student with Google", '/auth/google_oauth2?teacher=false' %>
