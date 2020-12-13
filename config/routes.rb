@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   post 'sign-up', to: 'users#create'
 
   # OAuth Routes
-  get 'auth/:provider/callback', to: 'sessions#GoogleAuth'
+  get 'auth/google_oauth2/callback', to: 'sessions#GoogleAuth'
   get 'auth/failure', to: redirect('/')
   
   resources :users, only: [:show, :new, :create, :update, :destroy]
