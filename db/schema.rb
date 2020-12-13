@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 2020_12_12_122843) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "google_token"
     t.string "google_refresh_token"
+    t.string "uid"
   end
 
 end
