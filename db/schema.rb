@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_30_041701) do
+ActiveRecord::Schema.define(version: 2020_12_12_122843) do
 
   create_table "answered_questions", force: :cascade do |t|
     t.integer "result_id"
@@ -89,6 +89,8 @@ ActiveRecord::Schema.define(version: 2020_11_30_041701) do
     t.boolean "teacher"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "google_token"
+    t.string "google_refresh_token"
   end
 
 end
