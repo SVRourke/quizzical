@@ -6,3 +6,5 @@ LAYOUT
 MAKE PARTIALS
 
 add container to views
+
+FIX QUIZ VALIDATION
