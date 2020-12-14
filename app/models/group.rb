@@ -10,7 +10,7 @@ class Group < ApplicationRecord
         :foreign_key => 'user_id',
         :association_foreign_key => 'group_id'
 
-    has_many :quizzes
+    has_many :quizzes, dependant: :destroy
     has_many :results, through: :quizzes
 end
 
