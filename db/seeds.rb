@@ -1,17 +1,24 @@
 
 # Create two teachers
 teachers = User.create([
-        {first_name: "Teacher 1", last_name: "Lastname", email: "teacher1@test.com", teacher: true, password: "password1"},
-        {first_name: "Teacher 2", last_name: "Lastname", email: "teacher2@test.com", teacher: true, password: "password1"}
+        {first_name: "Sharain", last_name: "Lark", email: "slark@test.com", teacher: true, password: "password1"},
+        {first_name: "Samuel", last_name: "Rourke", email: "srourke@test.com", teacher: true, password: "password1"}
         ])
 
 # Create 4 students
 students = User.create(
     [
-        {first_name: "Student 1", last_name: "last_name", email: "s1@test.com", password: "password1"},
-        {first_name: "Student 2", last_name: "last_name", email: "s2@test.com", password: "password1"},
-        {first_name: "Student 3", last_name: "last_name", email: "s3@test.com", password: "password1"},
-        {first_name: "Student 4", last_name: "last_name", email: "s4@test.com", password: "password1"}
+        {first_name: "Quinton", last_name: "Coldwater", email: "s3@test.com", password: "password1"},
+        {first_name: "Penny", last_name: "Adiyodi", email: "s1@test.com", password: "password1"},
+        {first_name: "Alice", last_name: "Quinn", email: "s3@test.com", password: "password1"},
+        {first_name: "Elliot", last_name: "Waugh", email: "s3@test.com", password: "password1"},
+        {first_name: "Margo", last_name: "Hanson", email: "s2@test.com", password: "password1"},
+        {first_name: "Julia", last_name: "Wicker", email: "s3@test.com", password: "password1"},
+        {first_name: "Josh", last_name: "Hoberman", email: "s3@test.com", password: "password1"},
+        {first_name: "Kady", last_name: "Orlof-diaz", email: "s3@test.com", password: "password1"},
+        {first_name: "Jane", last_name: "Chatwin", email: "s3@test.com", password: "password1"},
+        {first_name: "Tick", last_name: "Pickwick", email: "s3@test.com", password: "password1"},
+        {first_name: "Henry", last_name: "Fogg", email: "s3@test.com", password: "password1"}
     ]
 )
 # Create two Groups
@@ -22,8 +29,8 @@ groups = Group.create(
     ]
 )
 # Assign students to groups
-groups[0].students << students[0..1]
-groups[1].students << students[2..3]
+groups[0].students << students[0..5]
+groups[1].students << students[6..10]
 
 # create 2 Quizzes
 quizzes = Quiz.create([
@@ -55,29 +62,3 @@ end
 groups.first.quizzes << quizzes.first
 groups.last.quizzes << quizzes.last
 
-# create results for students
-# students[0..1].each do |st|
-#     res = st.results.build(quiz: quizzes.first)
-    
-#     quizzes.first.questions.each do |qn|
-#         if res.answers.count <= qn.answers.count - 3
-#             res.answers << qn.answers.sample
-#         else
-#             res.answers << qn.answers.last
-#         end
-#     end
-#     st.save
-# end
-
-# students[2..3].each do |st|
-#     res = st.results.build(quiz: quizzes.last)
-
-#     quizzes.last.questions.each do |qn|
-#         if res.answers.count <= qn.answers.count - 1
-#             res.answers << qn.answers.sample
-#         else
-#             res.answers << qn.answers.last
-#         end
-#     end
-#     st.save
-# end
