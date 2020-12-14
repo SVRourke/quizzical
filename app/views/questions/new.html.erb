@@ -4,6 +4,7 @@
 
 <%= form_for [@quiz, @question] do |f| %>
     <%= render 'shared/validation_errors', :record => @question %>
+    <%= render 'shared/flash_notice' %>
 
     <%= f.hidden_field :quiz_id, value: @quiz.id %>
     <%= f.label :content, "Question Content:" %><br>
