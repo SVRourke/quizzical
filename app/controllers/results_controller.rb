@@ -4,21 +4,13 @@ class ResultsController < ApplicationController
 
     def new
         authorize Result, :new?
-        @result = Quiz.find(params[:quiz_id]).results.build()
-        @result.quiz.questions.each do |q|
-            @result.answered_questions.build(question: q)
-        end
+        @result = Quiz.find(params[:quiz_id]).build_result()
     end
     
     def create
         authorize Result, :create?
-        @result = Result.new(result_params)
-        @result.user = current_user
-
-        if @result.save
-            redirect_to dashboards_path and return
-        end
-
+        @result = Result.new(result_params.merge({user: current_user}))
+        redirect_to group_path(@result.quiz.group) and return if @result.save
         render :new
     end
 
@@ -27,10 +19,7 @@ class ResultsController < ApplicationController
     def result_params
         params.require(:result).permit(
             :quiz_id, 
-            answered_questions_attributes: [
-                :answer_id, 
-                :question_id
-                ]
-            )
+            answered_questions_attributes: [ :answer_id, :question_id]
+        )
     end
 end
