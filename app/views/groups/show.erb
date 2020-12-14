@@ -1,19 +1,34 @@
-<%# show list of unattempted quizzes link_to new_result %>
-<%# show list of taken quizzes with grades %>
-<h1><%= @group.name %></h1>
-<h3><%= @group.teacher.last_name %></h3>
+<%# Content For Header %>
+<!-- ><h1><%= @group.name %></h1> -->
+<!-- ><h3><%= @group.teacher.last_name %></h3> -->
 
-<%# MAKE INTO PARTIAL %>
-<h2>Quizzes</h2>
-<% unattempted_quizzes(@group, current_user).each do |q| %>
-        <%= link_to q.name, new_quiz_result_path(q) %>
-<% end %>
+<div class="columns">
+    <div class="column">
+        <h2>Quizzes</h2>
+        <% unattempted_quizzes(@group, current_user).each do |q| %>
+                <%# MAKE INTO PARTIAL %>
+                <%# <%= link_to q.name, new_quiz_result_path(q) %>
+                <%= link_to(new_quiz_result_path(q), class: "block-link") do %>
+                    <section class="quiz-block">
+                        <div class="block-heading">
+                            <h3><%= q.name %></h3>
+                        </div>
+                        <p><%= q.questions.count %> Questions</p>
+                    </section>
+                <% end %>
+        <% end %>
+    </div>
 
-<%# MAKE INTO PARTIAL %>
-<h2>Finished Quizzes</h2>
-<% finished_quizzes(@group, current_user).each do |q| %>
-    Title: <%= q.name %>
-    <br>
-    Grade: <%= q.results.where(user: current_user).first.grade %>
-    <br><br>
-<% end %>
+    <div class="column">
+        <h2>Completed</h2>
+        <% finished_quizzes(@group, current_user).each do |q| %>
+            <%# MAKE INTO PARTIAL %>
+            <section class="quiz-block">
+                <div class="block-heading">
+                    <h3><%= q.name %></h3>
+                </div>
+                <p>Grade: <%= q.results.where(user: current_user).first.grade %></p>
+            </section>
+        <% end %>
+    </div>
+</div>
