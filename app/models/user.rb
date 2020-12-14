@@ -13,8 +13,8 @@ class User < ApplicationRecord
     validates :password, length: {minimum: 8}
 
     # Teacher Relationships
-    has_many :group_admins
-    has_many :taught_classes, through: :group_admins, source: :group
+    has_many :group_admins, dependent: :destroy
+    has_many :taught_classes, through: :group_admins, source: :group, dependent: :destroy
     has_many :students, through: :taught_classes, source: :students
     has_many :quizzes, through: :taught_classes, source: :quizzes
     
@@ -27,7 +27,7 @@ class User < ApplicationRecord
 
     has_many :assigned_quizzes, through: :enrolled_classes, source: :quizzes
     has_many :teachers, through: :enrolled_classes, source: :teacher
-    has_many :results
+    has_many :results, dependent: :destroy
 
     def full_name
         "#{first_name} #{last_name}"

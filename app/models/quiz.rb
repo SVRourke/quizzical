@@ -2,9 +2,9 @@ class Quiz < ApplicationRecord
     scope :ready, -> { where("published == true")}
     scope :chrono, -> { order(created_at: :desc)}
 
-    has_many :questions, dependant: :destroy
+    has_many :questions, dependent: :destroy
     belongs_to :group
-    has_many :results, dependant: :destroy
+    has_many :results, dependent: :destroy
     
     validates_with QuizValidator, on: :create
     validates_with PublicationValidator, on: :update
