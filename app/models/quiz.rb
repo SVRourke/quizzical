@@ -7,6 +7,7 @@ class Quiz < ApplicationRecord
     has_many :results
     
     validates_with QuizValidator, on: :create
+    validates_with PublicationValidator, on: :update
     
     def completed_by(user)
         results.any? {|r| r.user == user}
