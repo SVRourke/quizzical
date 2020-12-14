@@ -7,4 +7,4 @@ MAKE PARTIALS
 
 add container to views
 
-FIX QUIZ VALIDATION
+ADD Validation on publish to make sure a quiz has questions
