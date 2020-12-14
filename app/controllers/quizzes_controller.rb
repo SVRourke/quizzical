@@ -17,8 +17,10 @@ class QuizzesController < ApplicationController
     def publish
         authorize Quiz, :publish?
         @quiz = Quiz.find(params[:id])
-        @quiz.update(published: true)
-        redirect_to group_path(@quiz.group)
+        redirect_to group_path(@quiz.group) and return if @quiz.update(published: true)
+        
+        flash.notice = @quiz.errors.full_messages
+        redirect_back fallback_location: "/"
     end
     
     def show
