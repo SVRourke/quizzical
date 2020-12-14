@@ -7,13 +7,10 @@ body {
     width: 100vw;
     height: 100vh;
 }
-.view-display {
-    width: 100%;
-    height: 80%;
-    display: grid;
-    place-items: center;
-}
 .view {
+    width: 80%;
+    padding-top: 50px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
 }
