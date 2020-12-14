@@ -1,0 +1,33 @@
+.block-display {
+    padding-top: 2rem;
+    margin: 0 auto;
+    max-width: 1000px;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    grid-gap: 1rem;
+    justify-content: space-evenly;
+
+}
+.class-block {
+    padding: 1rem;
+    min-width: 300px;
+    height: 150px;
+    border: solid black 3px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    border: solid black 2px;
+    border-radius: 0.5rem;
+}
+.block-heading h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+.block-link {
+    text-decoration: none;
+    color: #181818;
+}
+.class-block:hover {
+    transform: scale(1.02);
+}
