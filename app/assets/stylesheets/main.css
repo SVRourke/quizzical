@@ -13,3 +13,7 @@ body {
     display: grid;
     place-items: center;
 }
+.view {
+    display: flex;
+    flex-direction: column;
+}
