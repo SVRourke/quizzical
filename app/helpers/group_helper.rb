@@ -17,6 +17,10 @@ module GroupHelper
         return "#{stub} taken this quiz."
     end
 
+    def quizzes_due(group)
+        group.quizzes.ready.count - group.results.where(user: current_user).count
+    end
+
 
 
 end
