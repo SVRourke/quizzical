@@ -1,0 +1,16 @@
+.errors-block {
+    /* width: 60%; */
+    padding: 1.5em 2em 1em 2em;
+    margin-bottom: 10px;
+    background-color: #ffcccc;
+  }
+  .errors-block li {
+    padding-bottom: 0.7em;
+  }
+  .error-border {
+    border: solid #cacaca 1px;
+    border-left-style: solid;
+    border-left-width: 10px;
+    border-left-color: red;
+    border-radius: 2px 5px 5px 2px;
+  }
