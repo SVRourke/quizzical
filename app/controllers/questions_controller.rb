@@ -5,20 +5,15 @@ class QuestionsController < ApplicationController
     def new
         authorize Question, :new?
         @quiz = Quiz.find(params[:quiz_id])
-        
         @question = Question.new
-        4.times do
-            @question.answers.build
-        end
+        4.times {@question.answers.build}
     end
 
     def create
         authorize Question, :create?
         @question = Question.create(question_params)
 
-        if @question.valid?
-            redirect_to new_quiz_question_path(@question.quiz) and return
-        end
+        redirect_to new_quiz_question_path(@question.quiz) and return if @question.valid?
 
         @quiz = @question.quiz
         render :new
