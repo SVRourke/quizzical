@@ -10,21 +10,16 @@ class QuizzesController < ApplicationController
     
     def create
         authorize Quiz, :create?
-        
         @quiz = Quiz.new(quiz_params)
         @quiz.group = Group.find(params[:group_id])
-
-        if @quiz.save
-            redirect_to new_quiz_question_path(@quiz) and return
-        end
-
+        redirect_to new_quiz_question_path(@quiz) and return if @quiz.save
         render :new
     end
 
     def publish
         authorize Quiz, :publish?
         @quiz = Quiz.find(params[:id])
-        @quiz.update(published: true)
+        @quiz.publish
         redirect_to group_path(@quiz.group)
     end
     
