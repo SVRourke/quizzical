@@ -1,5 +1,5 @@
 <% if record.errors.any? %>
-    <div class="errors">
+    <section class="errors-block error-border">
         <ul>
             <% record.errors.messages.values.each do |msg| %>
                 <% msg.each do |m| %>
@@ -7,7 +7,9 @@
                 <% end %>
             <% end %>
         </ul>
-    </div>
+    </section>
 <% end %>
+
+
 
 <%#= render 'shared/validation_errors', :record => @question %>
