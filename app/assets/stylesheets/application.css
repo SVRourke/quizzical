@@ -16,4 +16,5 @@
  *= require main
  *= require errors
  *= require block-grid
+ *= require student_group_view
  */
