@@ -17,4 +17,8 @@ class Quiz < ApplicationRecord
         self.questions.each {|q| r.answered_questions.build(question: q)}
         return r
     end
+
+    def publish
+        self.update(published: true)
+    end
 end
