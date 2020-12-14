@@ -1,8 +1,12 @@
-<h4><%= group.name %></h4>
-<%= link_to "View", group_path(group) %>
-<p>Teacher: <%= group.teacher.full_name %></p>
-<p>
-    Quizzes Total: <%= group.quizzes.ready.count %>, 
-    Due: <%= group.quizzes.ready.count - group.results.where(user: current_user).count %>, 
-    Completed: <%= group.quizzes.filter {|q| q.completed_by(current_user)}.count %>
-</p>
+<%= link_to(group, class: "block-link") do %>
+    <section class="class-block">
+
+        <div class="block-heading">
+            <h3><%= group.name %></h3>
+            <p>Teacher: <%= group.teacher.full_name %></p>
+        </div>
+
+        <p><%= quizzes_due(group) %> Quizzes Due</p>
+
+    </section>
+<% end %>

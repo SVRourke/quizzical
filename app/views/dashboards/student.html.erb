@@ -1,5 +1,7 @@
-<h3>Classes:</h3>
+<h2>Classes:</h2>
 
-<% @user.enrolled_classes.each do |c| %>
-    <%= render partial: "group_chunk", :locals => {group: c} %>
-<% end %>
+<div class="block-display">
+    <% @user.enrolled_classes.each do |c| %>
+        <%= render partial: "group_chunk", :locals => {group: c} %>
+    <% end %>
+</div>
