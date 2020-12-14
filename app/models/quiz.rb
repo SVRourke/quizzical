@@ -9,8 +9,12 @@ class Quiz < ApplicationRecord
     validates_with QuizValidator
     
     def completed_by(user)
-        results.any? do |r|
-            r.user == user
-        end
+        results.any? {|r| r.user == user}
+    end
+
+    def build_result
+        r = self.results.build()
+        self.questions.each {|q| r.answered_questions.build(question: q)}
+        return r
     end
 end
