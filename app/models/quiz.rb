@@ -6,7 +6,7 @@ class Quiz < ApplicationRecord
     belongs_to :group
     has_many :results
     
-    validates_with QuizValidator
+    validates_with QuizValidator, on: :create
     
     def completed_by(user)
         results.any? {|r| r.user == user}
@@ -18,7 +18,4 @@ class Quiz < ApplicationRecord
         return r
     end
 
-    def publish
-        self.update(published: true)
-    end
 end
