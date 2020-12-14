@@ -10,32 +10,19 @@ class GroupsController < ApplicationController
     def show
         @group= Group.find(params[:id])
         authorize @group
-
-        if current_user.teacher
-            render :teacher_view_group
-        end
+        render :teacher_view_group and return if current_user.teacher
     end
 
     def new
         authorize Group, :new?
         @group = Group.new
-
     end
 
     def create
         authorize Group, :create?
-
-        @group = Group.new
-        @group.teacher = current_user
-        @group.update(group_params)
-    
-
-        if @group.save()
-            redirect_to group_path(@group) and return
-        end
-
+        @group = Group.new(group_params.merge({teacher: current_user}))
+        redirect_to group_path(@group) and return if @group.save()
         render :new
-
     end
 
     def destroy
