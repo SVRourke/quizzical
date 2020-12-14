@@ -19,7 +19,7 @@ class QuizzesController < ApplicationController
         @quiz = Quiz.find(params[:id])
         redirect_to group_path(@quiz.group) and return if @quiz.update(published: true)
         
-        flash.notice = @quiz.errors.full_messages
+        flash.notice << [@quiz.errors.full_messages]
         redirect_back fallback_location: "/"
     end
     

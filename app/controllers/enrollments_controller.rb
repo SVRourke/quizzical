@@ -9,8 +9,8 @@ class EnrollmentsController < ApplicationController
             redirect_to dashboards_path and return
         end
 
-        flash.notice = "You are already in that class"
-        redirect_to groups_path
+        flash.notice = ["You are already in that class"]
+        redirect_back fallback_location: groups_path() 
     end
 
 end

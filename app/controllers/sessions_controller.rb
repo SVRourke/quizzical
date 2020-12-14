@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
             redirect_to dashboards_path and return
         end
 
-        flash.notice = "Unable to log in with provided credentials..."
+        flash.notice << ["Unable to log in with provided credentials..."]
         redirect_back fallback_location: :root
     end
 
@@ -21,13 +21,13 @@ class SessionsController < ApplicationController
 
     def GoogleAuth
         if user = User.from_omniauth(auth, teacher_state)
-             session[:user_id] = user.id
-             redirect_to :dashboards and return
+            session[:user_id] = user.id
+            redirect_to :dashboards and return
         end
     
-        flash.notice = 'Error logging in...'
+        flash.notice << ['Error logging in...']
         render :new
-      end
+    end
     
     private
 
