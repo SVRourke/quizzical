@@ -1,9 +1,16 @@
+<!-- move to nav bar -->
 <%= link_to "Create A Quiz", new_group_quiz_path(@group) %>
 
 <h2>Quizzes</h2>
-<% @group.quizzes.each do |q| %>
-    <%= link_to group_quiz_path(@group, q) do %>
-        <h4><%= q.name %></h4>
-        <p><%= student_results_count(q) %></p>
+<div class="block-display">
+    <% @group.quizzes.each do |q| %>
+        <%= link_to group_quiz_path(@group, q), class: "block-link" do %>
+            <section class="class-block">
+                <div class="block-heading">
+                    <h4><%= q.name %></h4>
+                </div>
+                <p><%= student_results_count(q) %></p>
+            </section>
+        <% end %>
     <% end %>
-<% end %>
+</div>
