@@ -7,9 +7,8 @@
     <%= f.hidden_field :quiz_id %>
     <%= f.fields_for :answered_questions do |aq| %>
         <%= aq.hidden_field :question_id %>
-        <%= aq.object.question.content %><br>
+        <%= aq.object.question.content %>
             <%= aq.collection_radio_buttons :answer_id, aq.object.question.answers, :id, :content %>
-        <br>
     <% end %>
 
     <%= f.submit "Submit Quiz" %>

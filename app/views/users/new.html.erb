@@ -1,19 +1,21 @@
 <%= render "shared/page_title", content: "Sign Up" %>
-<%= render "shared/validation_errors", record: @user %>
 
-<%= form_for @user do |f| %>
-    <%= f.label :first_name, "First Name:" %><br>
-    <%= f.text_field :first_name %><br>
-    <%= f.label :last_name, "Last Name:" %><br>
-    <%= f.text_field :last_name %><br>
-    <%= f.label :email, "Email Address:" %><br>
-    <%= f.text_field :email %><br>
-    <%= f.label :password, "Password:" %><br>
-    <%= f.password_field :password %><br>
-    <%= f.label :teacher, "Are You a Teacher?" %>
-    <%= f.check_box :teacher, checked_value: true, unchecked_value: false %><br><br>
-    <%= f.submit "Create Account!" %>
-<% end %>
+<div class="form-container">
+    <%= form_for @user do |f| %>
+        <%= render "shared/validation_errors", record: @user %>
+        <%= f.label :first_name, "First Name:" %>
+        <%= f.text_field :first_name %>
+        <%= f.label :last_name, "Last Name:" %>
+        <%= f.text_field :last_name %>
+        <%= f.label :email, "Email Address:" %>
+        <%= f.text_field :email %>
+        <%= f.label :password, "Password:" %>
+        <%= f.password_field :password %>
+        <%= f.label :teacher, "Are You a Teacher?" %>
+        <%= f.check_box :teacher, checked_value: true, unchecked_value: false %>
+        <%= f.submit "Create Account!" %>
+    <% end %>
 
-<%= link_to "Sign up as a Teacher with Google", '/auth/google_oauth2?teacher=true' %>
-<%= link_to "Sign up as a Student with Google", '/auth/google_oauth2?teacher=false' %>
+    <%= link_to "Sign up as a Teacher with Google", '/auth/google_oauth2?teacher=true' %>
+    <%= link_to "Sign up as a Student with Google", '/auth/google_oauth2?teacher=false' %>
+</div>

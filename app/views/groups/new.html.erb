@@ -1,10 +1,11 @@
 <%= render "shared/page_title", content: "New Class" %>
 
 <h1>Create A Class:</h1>
-
-<%= form_for @group do |f| %>
-    <%= render 'shared/validation_errors', :record => @group %>
-    <%= f.label "Group Name: ", :name%><br>
-    <%= f.text_field :name %><br>
-    <%= f.submit "Create Group" %>
-<% end %>
+<div class="form-container">
+    <%= form_for @group do |f| %>
+        <%= render 'shared/validation_errors', :record => @group %>
+        <%= f.label "Group Name: ", :name%>
+        <%= f.text_field :name %>
+        <%= f.submit "Create Group" %>
+    <% end %>
+</div>

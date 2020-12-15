@@ -1,10 +1,14 @@
 <%= render "shared/page_title", content: "Log In" %>
-<%= render "shared/flash_notice" %>
 
-<%= form_with do |f| %>
-    <%= f.text_field :email %><br>
-    <%= f.password_field :password %><br>
-    <%= f.submit "Log In" %>
-<% end %>
+<div class="form-container">
+    <%= render "shared/flash_notice" %>
+    <%= form_with do |f| %>
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+        <%= f.submit "Log In" %>
+    <% end %>
 
-<%= link_to "Log in with Google", '/auth/google_oauth2' %>
+    <%= link_to "Log in with Google", '/auth/google_oauth2' %>
+</div>

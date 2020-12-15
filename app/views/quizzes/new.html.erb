@@ -1,10 +1,11 @@
 <%= render "shared/page_title", content: "Create A Quiz" %>
 
 <h1>Create a Quiz!</h1>
-
-<%= form_for @quiz, url: group_quizzes_path() do |f| %>
-    <%= render 'shared/validation_errors', :record => @quiz %>
-    <%= f.hidden_field :group_id, value: @quiz.group_id %>
-    <%= f.text_field :name %>
-    <%= f.submit "Add Questions" %>
-<% end %>
+<div class="form-container">
+    <%= form_for @quiz, url: group_quizzes_path() do |f| %>
+        <%= render 'shared/validation_errors', :record => @quiz %>
+        <%= f.hidden_field :group_id, value: @quiz.group_id %>
+        <%= f.text_field :name %>
+        <%= f.submit "Add Questions" %>
+    <% end %>
+</div>
