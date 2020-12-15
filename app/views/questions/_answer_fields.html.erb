@@ -1,6 +1,6 @@
 <%= f.fields_for :answers do |answer_form| %>
-        <%= answer_form.label :content , "Answer:"%><br>
+        <%= answer_form.label :content , "Answer:"%>
         <%= answer_form.text_field :content %>
         <%= answer_form.label :correct_answer , "Correct Answer?"%>
-        <%= answer_form.check_box :correct_answer, checked_value: true, unchecked_value: false %><br><br>
+        <%= answer_form.check_box :correct_answer, checked_value: true, unchecked_value: false %>
 <% end %>

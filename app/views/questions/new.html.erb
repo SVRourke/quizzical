@@ -3,19 +3,18 @@
 <h1><%= @quiz.name %></h1>
 <%= button_to "Publish!", [:publish, @quiz] %>
 
+    <%= form_for [@quiz, @question] do |f| %>
+        <%= render 'shared/validation_errors', :record => @question %>
+        <%= render 'shared/flash_notice' %>
 
-<%= form_for [@quiz, @question] do |f| %>
-    <%= render 'shared/validation_errors', :record => @question %>
-    <%= render 'shared/flash_notice' %>
+        <%= f.hidden_field :quiz_id, value: @quiz.id %>
+        <%= f.label :content, "Question Content:" %>
+        <%= f.text_field :content %>
 
-    <%= f.hidden_field :quiz_id, value: @quiz.id %>
-    <%= f.label :content, "Question Content:" %><br>
-    <%= f.text_field :content %><br><br>
+        <%= render 'answer_fields', :f => f %>
 
-    <%= render 'answer_fields', :f => f %>
-
-    <%= f.submit "Add Question" %>
-<% end %>
+        <%= f.submit "Add Question" %>
+    <% end %>
 
 
 
