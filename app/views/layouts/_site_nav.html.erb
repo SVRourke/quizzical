@@ -8,6 +8,10 @@
             <%= link_to "Find A Class", groups_path %>
         <% end %>
 
+        <% if content_for?(:new_quiz_link)%>
+            <%= yield :new_quiz_link %>
+        <% end %>
+
         <%= link_to "logout", logout_path, method: 'delete' %>
     <% else%>
         <%= link_to 'Log In', login_path %>
