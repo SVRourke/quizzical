@@ -1,3 +1,5 @@
+<%= render "shared/page_title", content: @result.quiz.name %>
+
 <h1><%= @result.quiz.name %></h1>
 
 <%= form_for @result, url: quiz_results_path(@result.quiz) do |f| %>

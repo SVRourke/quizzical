@@ -1,7 +1,4 @@
-
-<%# content for header %>
-<%# <h2>Classes:</h2> %>
-
+<%= render "shared/page_title", content: "dashboard" %>
 <div class="block-display">
     <% @user.enrolled_classes.each do |c| %>
         <%= render partial: "group_chunk", :locals => {group: c} %>
