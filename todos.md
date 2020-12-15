@@ -8,7 +8,3 @@ MAKE PARTIALS
 ADD Delete action to quiz and group controllers
 
 make teacher group view list format rather than blocks
-
-
-MOVE GREETING TO NAVBAR
-MOVE TITLES TO "JUMBOTRON" THROUGH content_for
