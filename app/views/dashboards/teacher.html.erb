@@ -1,18 +1,17 @@
-<h3>Groups:</h3>
-<ul>
-    <% @user.taught_classes.each do |c| %>
-        <li>
-            <%= link_to( "#{c.name}", c) %><br>
-            <%= c.students.count %> Students Enrolled.
-        </li>
-    <% end %>
-</ul>
+<div class="columns">
+    <div class="column">
+        <h3>Groups:</h3>
+        <% @user.taught_classes.each do |c| %>
+            <%= link_to(c, class: "block-link") do %>
+                <section class="quiz-block">
+                    <div class="block-heading">
+                        <h3><%= c.name %></h3>
+                    </div>
+                    <p><%= c.students.count %> Students Enrolled.</p>
+                </section>
+            <% end %>
+        <% end %>
+    </div>
+</div>
 
-<h3>Students:</h3>
-<ul>
-    <% @user.students.each do |s| %>
-        <li>
-            <%= s.first_name %>
-        </li>
-    <% end %>
-</ul>
+
