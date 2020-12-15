@@ -1,0 +1,42 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 300px;
+    padding-top: 30px;
+    margin: 0 auto;
+}
+.form-container form > * {
+    display:block;
+    width: 100%;
+    text-align: center;
+}
+.form-container label {
+    display: block;
+    text-align:left;
+    margin-bottom: 0px;
+}
+.form-container form input[type=text] {
+    text-align: left;
+    margin: 4px 0px 15px 0px;
+}
+.form-container input[type=submit] {
+    display: block;
+    margin: 0 auto;
+    margin-top: 15px;
+    width: 50%;
+}
+.form-container label[for=user_teacher] {
+    display: inline;
+}
+.form-container input[type=checkbox] {
+    width: 30%;
+    display: inline-block;
+    margin: 15px 0 20px 0;
+}
+.form-container a {
+    display: block;
+    font-size: .7rem;
+    text-align: center;
+    margin: 1rem 0 .2rem 0;
+}
