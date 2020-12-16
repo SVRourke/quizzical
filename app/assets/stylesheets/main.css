@@ -4,8 +4,10 @@
     box-sizing: border-box;
 }
 :root {
-    font-size: 18px;
+    font-size: 16px;
     font-family: 'Raleway';
+    --unattempted-bg-color: #04B50E;
+    --completed-bg-color:#7B7B7B;
 }
 body {
     width: 100vw;
