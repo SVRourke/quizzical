@@ -28,6 +28,13 @@ class QuizzesController < ApplicationController
         @quiz = Quiz.find(params[:id])
     end
 
+    def destroy
+        @quiz = Quiz.find(params[:id])
+        authorize @quiz, :destroy?
+        @quiz.destroy
+        redirect_to group_path(@quiz.group)
+    end
+
     private
     
     def quiz_params
