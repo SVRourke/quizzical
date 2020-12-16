@@ -17,13 +17,15 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :new, :create, :update, :destroy]
   resource :dashboards, only: :show
   
-  resources :groups, only: [:index, :new, :create, :show] do
+  delete '/groups/:id', to: "groups#destroy", as: "delete_group"
+  resources :groups, only: [:index, :new, :create, :show, ] do
     resources :enrollments, only: :create
     resources :quizzes, only: [:new, :create, :show]
   end
   
   resources :quizzes, except: [:new, :show, :edit, :create, :update, :destroy] do
     member do
+      delete 'delete', to: "quizzes#destroy"
       post 'publish', to: 'quizzes#publish'
     end
     resources :questions, only: [:new, :create, :destroy]
