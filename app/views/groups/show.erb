@@ -1,31 +1,24 @@
 <%= render "shared/page_title", content: @group.name %>
-<div class="columns">
-    <div class="column">
-        <h2>Quizzes</h2>
-        <% unattempted_quizzes(@group, current_user).each do |q| %>
-                <%# MAKE INTO PARTIAL %>
-                <%# <%= link_to q.name, new_quiz_result_path(q) %>
-                <%= link_to(new_quiz_result_path(q), class: "block-link") do %>
-                    <section class="quiz-block">
-                        <div class="block-heading">
-                            <h3><%= q.name %></h3>
-                        </div>
-                        <p><%= q.questions.count %> Questions</p>
-                    </section>
-                <% end %>
-        <% end %>
-    </div>
 
-    <div class="column">
-        <h2>Completed</h2>
-        <% finished_quizzes(@group, current_user).each do |q| %>
-            <%# MAKE INTO PARTIAL %>
-            <section class="quiz-block">
+<div class="list-container">
+    <h2>Quizzes</h2>
+    <% @group.quizzes.each do |q| %>
+        <% if q.completed_by(current_user) %>
+            <section class="quiz-block completed">
                 <div class="block-heading">
-                    <h3><%= q.name %></h3>
+                    <h3><%= q.name%></h3>
                 </div>
-                <p>Grade: <%= q.results.where(user: current_user).first.grade %></p>
+                <p>Grade: <%= q.user_grade(current_user) %></p>
             </section>
+        <% else %>
+            <%= link_to(new_quiz_result_path(q), class: "block-link") do %>
+                <section class="quiz-block untaken">
+                    <div class="block-heading">
+                        <h3><%= q.name %></h3>
+                    </div>
+                    <p><%= q.questions.count%> Questions</p>
+                </section>
+            <% end %>
+
         <% end %>
-    </div>
-</div>
+    <% end %>
