@@ -1,4 +1,5 @@
 <%= render "shared/page_title", content: @group.name %>
+<%= render "shared/page_heading", content: @group.name %>
 
 <% content_for :page_specific_link do %>
     <%= link_to "Create A Quiz", new_group_quiz_path(@group) %>

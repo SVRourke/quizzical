@@ -1,6 +1,6 @@
 <%= render "shared/page_title", content: "Create A Quiz" %>
+<%= render "shared/page_heading", content: "Create A Quiz" %>
 
-<h1>Create a Quiz!</h1>
 <div class="form-container">
     <%= form_for @quiz, url: group_quizzes_path() do |f| %>
         <%= render 'shared/validation_errors', :record => @quiz %>

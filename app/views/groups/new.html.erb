@@ -1,6 +1,7 @@
 <%= render "shared/page_title", content: "New Class" %>
+<%= render "shared/page_heading", content: "Create a Class!" %>
 
-<h1>Create A Class:</h1>
+
 <div class="form-container">
     <%= form_for @group do |f| %>
         <%= render 'shared/validation_errors', :record => @group %>

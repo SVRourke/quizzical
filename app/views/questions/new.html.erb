@@ -1,6 +1,6 @@
 <%= render "shared/page_title", content: "#{@quiz.name} Questions" %>
+<%= render "shared/page_heading", content: @quiz.name %>
 
-<h1><%= @quiz.name %></h1>
 <%= button_to "Publish!", [:publish, @quiz] %>
 
     <%= form_for [@quiz, @question] do |f| %>
