@@ -1,3 +1,8 @@
+<% content_for :page_specific_link do %>
+    <%= link_to "Delete Quiz", delete_quiz_path(@quiz), method: "delete" %>
+<% end %>
+
+
 <h3>Title: <%= @quiz.name %></h3>
 <p>Questions: <%= @quiz.questions.count %></p>
 <h3>Student Results</h3>

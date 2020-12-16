@@ -1,10 +1,9 @@
 <%= render "shared/page_title", content: @group.name %>
 
-<% content_for :new_quiz_link do %>
+<% content_for :page_specific_link do %>
     <%= link_to "Create A Quiz", new_group_quiz_path(@group) %>
+    <%= link_to "Delete Class", delete_group_path(@group), method: "delete" %>
 <% end %>
-
-<!-- move to nav bar -->
 
 <h2>Quizzes</h2>
 <div class="block-display">
