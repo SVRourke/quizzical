@@ -20,3 +20,8 @@ body {
     display: flex;
     flex-direction: column;
 }
+#user-greeting {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
