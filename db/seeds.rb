@@ -8,17 +8,17 @@ teachers = User.create([
 # Create 4 students
 students = User.create(
     [
-        {first_name: "Quinton", last_name: "Coldwater", email: "s3@test.com", password: "password1"},
-        {first_name: "Penny", last_name: "Adiyodi", email: "s1@test.com", password: "password1"},
+        {first_name: "Quinton", last_name: "Coldwater", email: "s1@test.com", password: "password1"},
+        {first_name: "Penny", last_name: "Adiyodi", email: "s2@test.com", password: "password1"},
         {first_name: "Alice", last_name: "Quinn", email: "s3@test.com", password: "password1"},
-        {first_name: "Elliot", last_name: "Waugh", email: "s3@test.com", password: "password1"},
-        {first_name: "Margo", last_name: "Hanson", email: "s2@test.com", password: "password1"},
-        {first_name: "Julia", last_name: "Wicker", email: "s3@test.com", password: "password1"},
-        {first_name: "Josh", last_name: "Hoberman", email: "s3@test.com", password: "password1"},
-        {first_name: "Kady", last_name: "Orlof-diaz", email: "s3@test.com", password: "password1"},
-        {first_name: "Jane", last_name: "Chatwin", email: "s3@test.com", password: "password1"},
-        {first_name: "Tick", last_name: "Pickwick", email: "s3@test.com", password: "password1"},
-        {first_name: "Henry", last_name: "Fogg", email: "s3@test.com", password: "password1"}
+        {first_name: "Elliot", last_name: "Waugh", email: "s4@test.com", password: "password1"},
+        {first_name: "Margo", last_name: "Hanson", email: "s5@test.com", password: "password1"},
+        {first_name: "Julia", last_name: "Wicker", email: "s6@test.com", password: "password1"},
+        {first_name: "Josh", last_name: "Hoberman", email: "s7@test.com", password: "password1"},
+        {first_name: "Kady", last_name: "Orlof-diaz", email: "s8@test.com", password: "password1"},
+        {first_name: "Jane", last_name: "Chatwin", email: "s9@test.com", password: "password1"},
+        {first_name: "Tick", last_name: "Pickwick", email: "s10@test.com", password: "password1"},
+        {first_name: "Henry", last_name: "Fogg", email: "s11@test.com", password: "password1"}
     ]
 )
 # Create two Groups
