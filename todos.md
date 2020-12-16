@@ -3,6 +3,4 @@ QUIZ TAKING
 
 MAKE PARTIALS
 
-ADD Delete action to quiz and group controllers
-
 change all block views to simplified "todo-list" view
