@@ -9,8 +9,8 @@ class SessionsController < ApplicationController
             session[:user_id] = @user.id
             redirect_to dashboards_path and return
         end
-
-        flash.notice << ["Unable to log in with provided credentials..."]
+        
+        flash.notice = ["Unable to log in with provided credentials..."]
         redirect_back fallback_location: :root
     end
 
