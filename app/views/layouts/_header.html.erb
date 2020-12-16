@@ -1,5 +1,10 @@
 <header>
-    <h1><%= user_greeting() %></h1>
+    <p id="user-greeting"><%= user_greeting() %></p>
+
+    <% if content_for?(:page_specific_heading)%>
+        <%= yield :page_specific_heading %>
+    <% end %>
+
     <%= render "layouts/site_nav" %>
 </header>
 
