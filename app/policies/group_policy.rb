@@ -17,6 +17,10 @@ class GroupPolicy < ApplicationPolicy
     user.teacher?
   end
 
+  def destroy?
+    user.teacher && record.teacher == user
+  end
+
   class Scope < Scope
     def resolve
       scope.all

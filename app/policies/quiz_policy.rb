@@ -15,6 +15,9 @@ class QuizPolicy < ApplicationPolicy
     user.teacher?
   end
 
+  def destroy?
+    user.teacher? && record.group.teacher == user
+  end
 
   class Scope < Scope
     def resolve
