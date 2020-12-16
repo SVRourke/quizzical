@@ -13,6 +13,10 @@ class Quiz < ApplicationRecord
         results.any? {|r| r.user == user}
     end
 
+    def user_grade(user)
+        results.where(user_id: user).first.grade()
+    end
+
     def build_result
         r = self.results.build()
         self.questions.each {|q| r.answered_questions.build(question: q)}
