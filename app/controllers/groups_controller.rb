@@ -9,7 +9,7 @@ class GroupsController < ApplicationController
 
     def show
         @group= Group.find(params[:id])
-        authorize @group
+        authorize @group, :show?
         render :teacher_view_group and return if current_user.teacher
     end
 
@@ -26,6 +26,10 @@ class GroupsController < ApplicationController
     end
 
     def destroy
+        @group = Group.find(params[:id])
+        authorize @group, :destroy?
+        @group.destroy
+        redirect_to dashboards_path()
     end
 
     private
