@@ -1,0 +1,11 @@
+.stats-container {
+    width: 55%;
+    margin: 0 auto;
+}
+.student-columns {
+    display: flex;
+    justify-content: space-between;
+}
+.student-result-block {
+    padding: 1rem 0px;
+}

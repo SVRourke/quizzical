@@ -18,4 +18,5 @@
  *= require student_group_view
  *= require form_styles
  *= require result_form
+ *= require quiz_stats
  */
