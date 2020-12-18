@@ -1,7 +1,7 @@
 <%= render "shared/page_title", content: "dashboard" %>
 <%= render "shared/page_heading", content: "Groups" %>
 
-<div class="block-display">
+<div class="list-container">
     <% @user.enrolled_classes.each do |c| %>
         <%= render partial: "group_chunk", :locals => {group: c} %>
     <% end %>
