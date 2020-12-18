@@ -1,17 +1,29 @@
 <%= render "shared/page_title", content: @result.quiz.name %>
 <%= render "shared/page_heading", content: @result.quiz.name %>
 
-<h1><%= @result.quiz.name %></h1>
+<div class="result-form">
+    <h1><%= @result.quiz.name %></h1>
+    <%= form_for @result, url: quiz_results_path(@result.quiz) do |f| %>
+        <%= render 'shared/validation_errors', :record => @result %>
+        <%= f.hidden_field :quiz_id %>
+        <ol>
+            <%= f.fields_for :answered_questions do |aq| %>
+                <div class="question">
+                    <li>
+                        <%= aq.hidden_field :question_id %>
+                        <h3><%= aq.object.question.content %></h3>
+                        <%= aq.collection_radio_buttons( :answer_id, aq.object.question.answers, :id, :content) do |b| %>
+                            <div class="answer-choice">
+                                <%= b.radio_button %>
+                                <%= b.label %>
+                            </div>
+                        <% end %>
+                    </li>
+                </div>
+            <% end %>
+        </ol>
 
-<%= form_for @result, url: quiz_results_path(@result.quiz) do |f| %>
-    <%= render 'shared/validation_errors', :record => @result %>
-    <%= f.hidden_field :quiz_id %>
-    <%= f.fields_for :answered_questions do |aq| %>
-        <%= aq.hidden_field :question_id %>
-        <%= aq.object.question.content %>
-            <%= aq.collection_radio_buttons :answer_id, aq.object.question.answers, :id, :content %>
+        <%= f.submit "Submit Quiz" %>
+
     <% end %>
-
-    <%= f.submit "Submit Quiz" %>
-
-<% end %>
+</div>
