@@ -1,0 +1,33 @@
+.result-form {
+    width: 50%;
+    margin: 0 auto;
+}
+.result-form h1 {
+    font-size: 2.5rem;
+}
+.question {
+    padding: 2.5rem 2rem 1rem 4rem;
+    margin: 2rem 0;
+    border: solid black 1px;
+}
+.question h3 {
+    font-size: 1.34rem;
+    padding-bottom: 1rem;
+}
+.answer-choice {
+    padding: .75rem 0;
+}
+.question li::marker {
+    font-size: 2rem;
+}
+.result-form input[type=submit] {
+    background-color: white;
+    border: solid black 1px;
+    padding: .5rem 1rem;
+    font-size: 1.25rem;
+}
+.result-form input[type=submit]:hover {
+    background-color: black;
+    color: white;
+
+}
