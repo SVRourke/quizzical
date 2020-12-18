@@ -3,8 +3,8 @@
 
 <div class="list-container">
     <% @user.taught_classes.each do |c| %>
-        <%= link_to(c, class: "") do %>
-            <section class="">
+        <%= link_to(c, class: "quiz-link") do %>
+            <section class="quiz-block group">
                 <div class="">
                     <h3><%= c.name %></h3>
                 </div>
