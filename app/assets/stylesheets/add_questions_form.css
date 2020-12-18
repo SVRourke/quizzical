@@ -1,0 +1,56 @@
+.new-columns {
+    display: flex;
+}
+.form-column {
+    width: 60%;
+}
+.form-column form {
+    margin: 0 auto;
+    width: 50%;
+}
+.form-column form > * {
+    display: block;
+    margin-top: .7rem;
+    padding: .5rem;
+}
+.form-column form input[type=text] {
+    width: 100%;
+    border: solid black 1px;
+    padding: .7rem;
+}
+.form-column form input[type=submit] {
+    border: solid black 1px;
+    width: 100%;
+    padding: 1rem;
+    background-color: white;
+}
+.form-column form input[type=submit]:hover {
+    background-color: black;
+    color: white;
+}
+.questions-column {
+    width: 30%;
+}
+.answer_fields {
+    border: solid black 1px;
+    margin: .5rem 0px;
+}
+.answer-label {
+}
+.question-content-field {
+    margin-bottom: 2rem;
+}
+.correct_select {
+
+}
+#question_content {
+    width: 100%;
+}
+.qcontent-label {
+    font-size: 2rem;
+}
+.answer-h {
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem .2rem .4rem .2rem;
+}

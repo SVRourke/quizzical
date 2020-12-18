@@ -1,0 +1,21 @@
+.added-question {
+    border: solid black 1px;
+    padding: 2rem;
+    margin-bottom: .5rem;
+}
+.added-question li {
+    display: flex;
+    justify-content: space-between;
+}
+.added-content {
+    width: 80%;
+}
+.added-content h4 {
+    margin-bottom: .5rem;
+}
+.added-content li {
+    display: list-item;
+}
+.added-content ul {
+    margin-left: 1.5rem;
+}
