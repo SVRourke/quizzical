@@ -34,6 +34,9 @@
     display: inline-block;
     margin: 15px 0 20px 0;
 }
+.form-container input[type=password] {
+    text-align: left;
+}
 .form-container a {
     display: block;
     font-size: .7rem;
