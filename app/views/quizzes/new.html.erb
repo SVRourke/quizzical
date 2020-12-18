@@ -5,6 +5,7 @@
     <%= form_for @quiz, url: group_quizzes_path() do |f| %>
         <%= render 'shared/validation_errors', :record => @quiz %>
         <%= f.hidden_field :group_id, value: @quiz.group_id %>
+        <%= f.label :Title %>
         <%= f.text_field :name %>
         <%= f.submit "Add Questions" %>
     <% end %>
