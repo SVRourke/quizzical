@@ -2,24 +2,31 @@
 <%= render "shared/page_heading", content: @quiz.name %>
 
 <%= button_to "Publish!", [:publish, @quiz] %>
+<%= render 'shared/validation_errors', :record => @question %>
+<%= render 'shared/flash_notice' %>
+    
+    <div class="new-columns pbr">
+        <div class="form-column">
+            <%= form_for [@quiz, @question] do |f| %>
 
-    <%= form_for [@quiz, @question] do |f| %>
-        <%= render 'shared/validation_errors', :record => @question %>
-        <%= render 'shared/flash_notice' %>
+                <%= f.hidden_field :quiz_id, value: @quiz.id %>
+                <%= f.label :content, "Question:", class: "qcontent-label" %>
+                <%= f.text_field :content, class: "question-content-field", placeholder: ">" %>
 
-        <%= f.hidden_field :quiz_id, value: @quiz.id %>
-        <%= f.label :content, "Question Content:" %>
-        <%= f.text_field :content %>
+                <%= render 'answer_fields', :f => f %>
 
-        <%= render 'answer_fields', :f => f %>
+                <%= f.submit "Add Question" %>
+            <% end %>
+        </div>
 
-        <%= f.submit "Add Question" %>
-    <% end %>
+        <div class="questions-column">
+            <% if @quiz.questions.any? %>
+                <%= render 'added_questions', record: @quiz %>
+            <% else %>
+                <p>Add a question!</p>
+            <% end %>
+        </div>
+    
+    </div>
 
 
-
-<% if @quiz.questions.any? %>
-    <%= render 'added_questions', record: @quiz %>
-<% else %>
-    <p>Add a question!</p>
-<% end %>
