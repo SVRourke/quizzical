@@ -13,10 +13,12 @@ add empty list messages
 Style new question page
 
 Shuffle displayed answers on new result page
+
 form placeholders
 
 add illustration to welcome page
 
 style
-    TEACHER QUIZ VIEW
     ADD QUESTIONS TO QUIZ PAGE/FORM
+
+fix question delete
