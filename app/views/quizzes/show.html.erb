@@ -1,23 +1,30 @@
 <%= render "shared/page_title", content: @quiz.name %>
-<%= render "shared/page_heading", content: @quiz.name %>
+<%= render "shared/page_heading", content: "#{@quiz.name}, #{@quiz.questions.count} Questions" %>
 
 <% content_for :page_specific_link do %>
     <%= link_to "Delete Quiz", delete_quiz_path(@quiz), method: "delete" %>
 <% end %>
 
-
-<h3>Title: <%= @quiz.name %></h3>
-<p>Questions: <%= @quiz.questions.count %></p>
-<h3>Student Results</h3>
-<% @quiz.results.each do |r| %>
-    <p><%= r.user.full_name %> Grade: <%= r.grade %></p>
-    <p></p>
-<% end %>
-
-<%# NOVE TO PARTIAL? %>
-<h3>Unattempted</h3>
-<% @quiz.group.students.each do |s| %>
-    <% if s.results.none? { |r| r.quiz == @quiz } %>
-        <p><%= s.full_name %></p>
-    <% end %>
-<% end %>
+<div class="stats-container">
+    <div class="student-columns">
+        <div class="student-results">
+            <h2>Student Results</h2>
+            <% @quiz.results.each do |r| %>
+                <div class="student-result-block">
+                    <p><%= r.user.full_name %> Grade: <%= r.grade %></p>
+                    <p></p>
+                </div>
+            <% end %>
+        </div>
+        
+        <div class="student-results">
+            <%# NOVE TO PARTIAL? %>
+            <h2>Unattempted</h2>
+            <% @quiz.group.students.each do |s| %>
+                <% if s.results.none? { |r| r.quiz == @quiz } %>
+                    <p><%= s.full_name %></p>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+</div>
