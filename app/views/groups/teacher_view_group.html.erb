@@ -6,14 +6,15 @@
     <%= link_to "Delete Class", delete_group_path(@group), method: "delete" %>
 <% end %>
 
-<h2>Quizzes</h2>
-<div class="block-display">
+<div class="list-container">
+    <h2>Quizzes</h2>
+    <%# Make partial %>
+    <%# ADD EMPTY MESSAGE %>
     <% @group.quizzes.each do |q| %>
-        <%= link_to group_quiz_path(@group, q), class: "block-link" do %>
-            <section class="class-block">
-                <div class="block-heading">
-                    <h4><%= q.name %></h4>
-                </div>
+        <%= link_to group_quiz_path(@group, q), class: "quiz-link" do %>
+            <section class="quiz-block group">
+                <h4><%= q.name %></h4>
+                <p><%= q.questions.count %> Questions</p>
                 <p><%= student_results_count(q) %></p>
             </section>
         <% end %>
