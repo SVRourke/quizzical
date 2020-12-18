@@ -23,3 +23,12 @@
 /*   filter: hue-rotate(25deg); */
   filter: brightness(1.25);
 }
+.group {
+  color: black;
+  border: solid #646464 1px;
+  background-color:var(--group-bg-color);
+}
+.group:hover {
+  transform: scale(1.02);
+  
+}
