@@ -1,14 +1,19 @@
 <ol>
     <% record.questions.each do |q| %>
-        <li><%= q.content %>
-            <%= button_to "Remove", {action: 'destroy', quiz_id: @quiz.id, id: q.id}, method: 'delete' %>
-            <ul>
-                <% q.answers.each do |a| %>
-                    <li>
-                        <%= a.content %><%= " -correct answer" if a.correct_answer %>
-                        </li>
-                <% end %>
-            </ul>
-        </li>
+
+        <div class="added-question">
+            <li>
+                <div class="added-content">
+                    <h4><%= q.content %></h4>
+                    <ul>
+                        <% q.answers.each do |a| %>
+                            <li><%= a.content %><%= " -correct answer" if a.correct_answer %></li>
+                        <% end %>
+                    </ul>
+                </div>
+                
+                <%= button_to "Remove", {action: 'destroy', quiz_id: @quiz.id, id: q.id}, method: 'delete' %>
+            </li>
+        </div>
     <% end %>
 </ol>
