@@ -1,6 +1,13 @@
 <%= f.fields_for :answers do |answer_form| %>
-        <%= answer_form.label :content , "Answer:"%>
-        <%= answer_form.text_field :content %>
-        <%= answer_form.label :correct_answer , "Correct Answer?"%>
-        <%= answer_form.check_box :correct_answer, checked_value: true, unchecked_value: false %>
+        <div class="answer_fields">
+                <div class="answer-h">
+                        <%= answer_form.label :content , "Answer:", class: "answer-label" %>
+                        <div class="correct_select">
+                                <%= answer_form.check_box :correct_answer, checked_value: true, unchecked_value: false %>
+                                <%= answer_form.label :correct_answer , "Correct Answer?"%>
+                        </div>
+                </div>
+                
+                <%= answer_form.text_field :content, placeholder: ">" %>
+        </div>
 <% end %>
