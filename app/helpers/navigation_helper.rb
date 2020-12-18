@@ -3,7 +3,7 @@ module NavigationHelper
         if logged_in?
             "Good #{colloquial_time_of_day}, #{current_user.first_name}"
         else
-            "Welcome to Quizzical"   
+            ""   
         end
     end
 
