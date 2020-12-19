@@ -1,6 +1,5 @@
 .added-question {
     border: solid black 1px;
-    padding: 2rem;
     margin-bottom: .5rem;
 }
 .added-question li {
@@ -8,7 +7,8 @@
     justify-content: space-between;
 }
 .added-content {
-    width: 80%;
+    padding: 2rem;
+    width: 200px;
 }
 .added-content h4 {
     margin-bottom: .5rem;
@@ -18,4 +18,33 @@
 }
 .added-content ul {
     margin-left: 1.5rem;
+}
+.publish {
+    margin: 0 auto;
+    width: 100%;
+    margin: 0 0 1rem 0;
+    background-color: white;
+    border: solid black 1px;
+    padding: .7rem;
+}
+.publish:hover {
+    background-color: black;
+    color: white;
+}
+.added-question li form {
+    width: 100px;
+}
+.delete-question {
+    height:100%;
+    width: 100%;
+    border-left-style: solid;
+    border-left-color: black;
+    border-width: 0px 0px 0px 1px;
+    background-color: #ffffff;
+
+
+}
+.delete-question:hover {
+    background-color: #f57e7e;
+    color: white;
 }
