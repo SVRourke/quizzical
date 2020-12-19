@@ -1,12 +1,11 @@
 <%= render "shared/page_title", content: "#{@quiz.name} Questions" %>
 <%= render "shared/page_heading", content: @quiz.name %>
 
-<%= button_to "Publish!", [:publish, @quiz] %>
-<%= render 'shared/validation_errors', :record => @question %>
-<%= render 'shared/flash_notice' %>
     
     <div class="new-columns pbr">
         <div class="form-column">
+            <%= render 'shared/validation_errors', :record => @question %>
+            <%= render 'shared/flash_notice' %>
             <%= form_for [@quiz, @question] do |f| %>
 
                 <%= f.hidden_field :quiz_id, value: @quiz.id %>
@@ -20,6 +19,7 @@
         </div>
 
         <div class="questions-column">
+            <%= button_to "Publish!", [:publish, @quiz], class: "publish" %>
             <% if @quiz.questions.any? %>
                 <%= render 'added_questions', record: @quiz %>
             <% else %>
