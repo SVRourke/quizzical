@@ -21,7 +21,7 @@ class QuestionsController < ApplicationController
 
     def destroy
         @question = Question.find(params[:id])
-        authorize @question
+        authorize @question, :destroy?
         @question.destroy
         redirect_to new_quiz_question_path(params[:quiz_id])
     end
