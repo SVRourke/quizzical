@@ -12,7 +12,7 @@
                     </ul>
                 </div>
                 
-                <%= button_to "Remove", {action: 'destroy', quiz_id: @quiz.id, id: q.id}, method: 'delete', class: "delete-question" %>
+                <%= button_to "Remove", {action: 'destroy', quiz_id: q.quiz.id, id: q.id}, method: 'delete', class: "delete-question" %>
             </li>
         </div>
     <% end %>
