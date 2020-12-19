@@ -9,16 +9,6 @@ add empty list messages
     student dashboard
     student group view - "No Quizzes available"
     
-
-Style new question page
-
 Shuffle displayed answers on new result page
-
 form placeholders
-
 add illustration to welcome page
-
-style
-    ADD QUESTIONS TO QUIZ PAGE/FORM
-
-fix question delete
