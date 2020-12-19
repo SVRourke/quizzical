@@ -30,6 +30,7 @@
 }
 .questions-column {
     width: 30%;
+    padding-top: 4.5rem;
 }
 .answer_fields {
     border: solid black 1px;
