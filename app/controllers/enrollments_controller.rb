@@ -13,4 +13,10 @@ class EnrollmentsController < ApplicationController
         redirect_back fallback_location: groups_path() 
     end
 
+    def destroy
+        authorize :enrollment, :destroy?
+        current_user.enrolled_classes.delete(Group.find(params[:id]))
+        redirect_to dashboards_path()
+    end
+
 end
