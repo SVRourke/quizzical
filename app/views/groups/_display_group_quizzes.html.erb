@@ -1,0 +1,9 @@
+<% quizzes.each do |q| %>
+    <%= link_to group_quiz_path(group, q), class: "quiz-link" do %>
+        <section class="quiz-block group">
+            <h4><%= q.name %></h4>
+            <p><%= q.questions.count %> Questions</p>
+            <p><%= student_results_count(q) %></p>
+        </section>
+    <% end %>
+<% end %>
