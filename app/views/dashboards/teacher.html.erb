@@ -2,15 +2,19 @@
 <%= render "shared/page_heading", content: "Groups" %>
 
 <div class="list-container">
-    <% @user.taught_classes.each do |c| %>
-        <%= link_to(c, class: "quiz-link") do %>
-            <section class="quiz-block group">
-                <div class="">
-                    <h3><%= c.name %></h3>
-                </div>
-                <p><%= c.students.count %> Students Enrolled.</p>
-            </section>
+    <% if @user.taught_classes.count > 0 %>
+        <% @user.taught_classes.each do |c| %>
+            <%= link_to(c, class: "quiz-link") do %>
+                <section class="quiz-block group">
+                    <div class="">
+                        <h3><%= c.name %></h3>
+                    </div>
+                    <p><%= c.students.count %> Students Enrolled.</p>
+                </section>
+            <% end %>
         <% end %>
+    <% else %>
+        <%= link_to "Create Your First Class", new_group_path() %>
     <% end %>
 </div>
 
