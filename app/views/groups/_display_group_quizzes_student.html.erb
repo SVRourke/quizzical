@@ -1,0 +1,11 @@
+<% if group.quizzes.any? %>
+    <% group.quizzes.each do |q| %>
+        <% if q.completed_by(current_user) %>
+            <%= render partial: "completed_quiz", locals: {q: q} %>
+        <% else %>
+            <%= render partial: "unattempted_quiz", locals: {q: q} %>
+        <% end %>
+    <% end %>
+<% else %>
+    <p>Check back soon to see if any quzzes have been assigned</p>
+<% end %>
