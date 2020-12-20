@@ -2,7 +2,11 @@
 <%= render "shared/page_heading", content: "Classes" %>
 
 <div class="list-container">
-    <% @user.enrolled_classes.each do |c| %>
-        <%= render partial: "group_chunk", :locals => {group: c} %>
+    <% if @user.enrolled_classes.any? %>
+        <% @user.enrolled_classes.each do |c| %>
+            <%= render partial: "group_chunk", :locals => {group: c} %>
+        <% end %>
+    <% else %>
+        <%= link_to "Enroll in a class!", groups_path() %>
     <% end %>
 </div>
