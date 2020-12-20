@@ -10,7 +10,7 @@ class GroupPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    user.enrolled_classes.any? {|c| c = record} || user.taught_classes.any? {|c| c = record}
   end
 
   def create?
