@@ -1,0 +1,15 @@
+.welcome-section {
+    width: 30%;
+    text-align: center;
+    margin: 0 auto;
+}
+.welcome-section img {
+    margin: 0 auto;
+    max-height: 200px;
+}
+.welcome-section a {
+    padding: .5rem;
+}
+.welcome-link-container {
+    margin-top: 1rem;
+}
