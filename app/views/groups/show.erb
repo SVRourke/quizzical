@@ -8,25 +8,30 @@
 
 <div class="list-container">
     <h2>Quizzes</h2>
-    <% @group.quizzes.each do |q| %>
+    <% if @group.quizzes.any? %>
         <%# make partial %>
-        <% if q.completed_by(current_user) %>
-            <section class="quiz-block completed">
-                <div class="block-heading">
-                    <h3><%= q.name%></h3>
-                </div>
-                <p>Grade: <%= q.user_grade(current_user) %></p>
-            </section>
-        <% else %>
+        <% @group.quizzes.each do |q| %>
             <%# make partial %>
-            <%= link_to(new_quiz_result_path(q), class: "quiz-link") do %>
-                <section class="quiz-block untaken">
+            <% if q.completed_by(current_user) %>
+                <section class="quiz-block completed">
                     <div class="block-heading">
-                        <h3><%= q.name %></h3>
+                        <h3><%= q.name%></h3>
                     </div>
-                    <p><%= q.questions.count%> Questions</p>
+                    <p>Grade: <%= q.user_grade(current_user) %></p>
                 </section>
+            <% else %>
+                <%# make partial %>
+                <%= link_to(new_quiz_result_path(q), class: "quiz-link") do %>
+                    <section class="quiz-block untaken">
+                        <div class="block-heading">
+                            <h3><%= q.name %></h3>
+                        </div>
+                        <p><%= q.questions.count%> Questions</p>
+                    </section>
+                <% end %>
             <% end %>
-
         <% end %>
+    <% else %>
+        <p>Check back soon to see if any quzzes have been assigned</p>
     <% end %>
+</div>
