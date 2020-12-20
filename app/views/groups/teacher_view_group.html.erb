@@ -10,13 +10,17 @@
     <h2>Quizzes</h2>
     <%# Make partial %>
     <%# ADD EMPTY MESSAGE %>
-    <% @group.quizzes.each do |q| %>
-        <%= link_to group_quiz_path(@group, q), class: "quiz-link" do %>
-            <section class="quiz-block group">
-                <h4><%= q.name %></h4>
-                <p><%= q.questions.count %> Questions</p>
-                <p><%= student_results_count(q) %></p>
-            </section>
+    <% if @group.quizzes.count > 0 %>
+        <% @group.quizzes.each do |q| %>
+            <%= link_to group_quiz_path(@group, q), class: "quiz-link" do %>
+                <section class="quiz-block group">
+                    <h4><%= q.name %></h4>
+                    <p><%= q.questions.count %> Questions</p>
+                    <p><%= student_results_count(q) %></p>
+                </section>
+            <% end %>
         <% end %>
+    <% else %>
+        <%= link_to "Create A Quiz for #{@group.name}!", new_group_quiz_path(@group) %>
     <% end %>
 </div>
