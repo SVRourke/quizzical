@@ -1,3 +1,16 @@
 <%= render "shared/page_title", content: "Quizzical" %>
-<%= render "shared/page_heading", content: "Welcom to Quizzical" %>
-<h1>Welcome to Quizzical!</h1>
+<%= render "shared/page_heading", content: "Hello!" %>
+
+
+
+
+
+<section class="welcome-section" >
+    <%= image_tag("students.svg", class: "welcome-image") %>
+    <h1>Welcome to Quizzical!</h1>
+    <p>Remote Pop Quizzes</p>
+    <div class="welcome-link-container">
+        <%= link_to "Log In", login_path() %>
+        <%= link_to "Sign Up", sign_up_path() %>
+    </div>
+</section>
