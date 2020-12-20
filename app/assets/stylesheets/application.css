@@ -21,4 +21,5 @@
  *= require quiz_stats
  *= require add_questions_form
  *= require added_questions_list
+ *= require welcome
  */
