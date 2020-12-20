@@ -6,4 +6,8 @@ class EnrollmentPolicy < Struct.new(:user, :enrollment)
   def create?
     !user.teacher?
   end
+
+  def destroy?
+    !user.teacher?
+  end
 end
