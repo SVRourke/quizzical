@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     resources :enrollments, only: :create
     resources :quizzes, only: [:new, :create, :show]
   end
+
+  post 'unenroll/:id', to: "enrollments#destroy", as: "unenroll"
   
   resources :quizzes, except: [:new, :show, :edit, :create, :update, :destroy] do
     member do
