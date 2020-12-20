@@ -1,0 +1,7 @@
+<% q.group.students.each do |s| %>
+    <% if s.results.none? { |r| r.quiz == q } %>
+        <div class="quiz-block group">
+            <p><%= s.full_name %></p>
+        </div>
+    <% end %>
+<% end %>

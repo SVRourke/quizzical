@@ -9,22 +9,12 @@
     <div class="student-columns">
         <div class="student-results">
             <h2>Student Results</h2>
-            <% @quiz.results.each do |r| %>
-                <div class="student-result-block">
-                    <p><%= r.user.full_name %> Grade: <%= r.grade %></p>
-                    <p></p>
-                </div>
-            <% end %>
+            <%= render partial: "display_results", locals: {results: @quiz.results} %>
         </div>
         
         <div class="student-results">
-            <%# NOVE TO PARTIAL? %>
             <h2>Unattempted</h2>
-            <% @quiz.group.students.each do |s| %>
-                <% if s.results.none? { |r| r.quiz == @quiz } %>
-                    <p><%= s.full_name %></p>
-                <% end %>
-            <% end %>
+            <%= render partial: "display_unattempted", locals: {q: @quiz} %>
         </div>
     </div>
 </div>

@@ -1,0 +1,7 @@
+<% results.each do |r| %>
+    <div class="student-result-block">
+        <div class="quiz-block group">
+            <p><%= r.user.full_name %> | Grade: <%= r.grade %></p>
+        </div>
+    </div>
+<% end %>
