@@ -1,9 +1,9 @@
 <%= render "shared/page_title", content: "Sign Up" %>
 <%= render "shared/page_heading", content: "Sign Up" %>
 
+<%= render "shared/validation_errors", record: @user %>
 <div class="form-container">
     <%= form_for @user do |f| %>
-        <%= render "shared/validation_errors", record: @user %>
         <%= f.label :first_name, "First Name:" %>
         <%= f.text_field :first_name %>
         <%= f.label :last_name, "Last Name:" %>

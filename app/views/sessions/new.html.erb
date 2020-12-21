@@ -1,8 +1,8 @@
 <%= render "shared/page_title", content: "Log In" %>
 <%= render "shared/page_heading", content: "Log In" %>
 
+<%= render "shared/flash_notice" %>
 <div class="form-container">
-    <%= render "shared/flash_notice" %>
     <%= form_with do |f| %>
         <%= f.label :email %>
         <%= f.text_field :email %>
