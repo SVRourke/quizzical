@@ -12,7 +12,9 @@ One you have cloned the repository cd into the folder and run bundle install, th
 
 
 #### Step 1
-This project relies on * [dotenv](https://github.com/bkeepers/dotenv) to manage environment variables, dotenv user a file ".env" in the root directory of the app to declare environment variables. For obvious reasons I have not included my .env file in the repository so you will have to create on yourself with your own information.
+This project relies on [dotenv](https://github.com/bkeepers/dotenv) to manage environment variables, dotenv uses a file ".env" in the root directory of the app to declare environment variables. For obvious reasons I have not included my .env file in the repository so you will have to create on yourself with your own information.
+
+This project relies on 3 environment variables SESSION_SECRET (used by the server to encrypt cookies), GOOGLE_CLIENT_ID, and GOOGLE_CLIENT_SECRET (used for authenticating users via google omniauth [zquests OmniAuth Google OAtuh2 Strategy](https://github.com/zquestz/omniauth-google-oauth2)  ). 
 
 ```
 Give the example
