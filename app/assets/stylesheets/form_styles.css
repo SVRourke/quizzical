@@ -19,6 +19,7 @@
 .form-container form input[type=text] {
     text-align: left;
     margin: 4px 0px 15px 0px;
+    width: 100%;
 }
 .form-container input[type=submit] {
     display: block;
@@ -36,6 +37,8 @@
 }
 .form-container input[type=password] {
     text-align: left;
+    width: 100%;
+
 }
 .form-container a {
     display: block;
