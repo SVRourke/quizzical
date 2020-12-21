@@ -1,24 +1,16 @@
-# Project Title
+# Quizzical
 
-One Paragraph of project description goes here
+Quizzical is a Ruby on Rails app that allow users to create and take quizzes online.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+To get started simply clone the repository and follow the setup instructions below
 
-### Prerequisites
+### Setup
 
-What things you need to install the software and how to install them
+One you have cloned the repository cd into the folder and run bundle install, this will install the necessary gems.
 
-```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+#### Step 1
 
 ```
 Give the example
