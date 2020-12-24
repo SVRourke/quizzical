@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get 'auth/google_oauth2/callback', to: 'sessions#GoogleAuth'
   get 'auth/failure', to: redirect('/')
   
-  resources :users, only: [:show, :new, :create, :update, :destroy]
+  resources :users, only: [:new, :create]
   resource :dashboards, only: :show
   
   delete '/groups/:id', to: "groups#destroy", as: "delete_group"
