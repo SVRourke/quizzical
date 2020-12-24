@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 
   post 'unenroll/:id', to: "enrollments#destroy", as: "unenroll"
   
-  resources :quizzes, except: [:new, :show, :edit, :create, :update, :destroy] do
+  resources :quizzes, except: [:new, :show, :edit, :create, :update, :destroy, :index] do
     member do
       delete 'delete', to: "quizzes#destroy"
       post 'publish', to: 'quizzes#publish'
