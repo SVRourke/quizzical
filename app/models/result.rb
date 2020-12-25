@@ -2,7 +2,7 @@ class Result < ApplicationRecord
     belongs_to :quiz
     belongs_to :user
 
-    has_many :answered_questions, dependent: :delete_all
+    has_many :answered_questions, dependent: :destroy
     has_many :questions, through: :answered_questions
     has_many :answers, through: :answered_questions
 
