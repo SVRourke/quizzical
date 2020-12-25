@@ -1,8 +1,7 @@
 
-# Create two teachers
+# Create a Teacher
 teachers = User.create([
-        {first_name: "Sharain", last_name: "Lark", email: "slark@test.com", teacher: true, password: "password1"},
-        {first_name: "Samuel", last_name: "Rourke", email: "srourke@test.com", teacher: true, password: "password1"}
+        {first_name: "Henry", last_name: "Fogg", email: "hfogg@school.com", teacher: true, password: "password1"},
         ])
 
 # Create 4 students
@@ -18,47 +17,47 @@ students = User.create(
         {first_name: "Kady", last_name: "Orlof-diaz", email: "s8@test.com", password: "password1"},
         {first_name: "Jane", last_name: "Chatwin", email: "s9@test.com", password: "password1"},
         {first_name: "Tick", last_name: "Pickwick", email: "s10@test.com", password: "password1"},
-        {first_name: "Henry", last_name: "Fogg", email: "s11@test.com", password: "password1"}
     ]
 )
 # Create two Groups
-groups = Group.create(
-    [
-        {name: "History", teacher: teachers[0]},
-        {name: "Algebra", teacher: teachers[1]},
-    ]
+group = Group.create(
+    name: "History",
+    teacher: teachers[0]
 )
 # Assign students to groups
-groups[0].students << students[0..5]
-groups[1].students << students[6..10]
+group.students << students
 
 # create 2 Quizzes
-quizzes = Quiz.create([
-    {name: "Quiz 1", group: groups.first, published: true},
-    {name: "Quiz 2", group: groups.last, published: true}
+quiz = Quiz.create(
+    name: "Quiz 1", 
+    group: group, 
+    published: false
+)
+qs = Question.create([
+    {content: "a", quiz: quiz, answers: Answer.create([
+        {content: "right", correct_answer: true},
+        {content: "wrong ", correct_answer: false},
+        {content: "wrong again", correct_answer: false},
+        {content: "wrong yet again", correct_answer: false},
+    ])},
+    {content: "b", quiz: quiz, answers: Answer.create([
+        {content: "right", correct_answer: true},
+        {content: "wrong ", correct_answer: false},
+        {content: "wrong again", correct_answer: false},
+        {content: "wrong yet again", correct_answer: false},
+    ])},
+    {content: "c", quiz: quiz, answers: Answer.create([
+        {content: "right", correct_answer: true},
+        {content: "wrong ", correct_answer: false},
+        {content: "wrong again", correct_answer: false},
+        {content: "wrong yet again", correct_answer: false},
+    ])},
+    {content: "d", quiz: quiz, answers: Answer.create([
+        {content: "right", correct_answer: true},
+        {content: "wrong ", correct_answer: false},
+        {content: "wrong again", correct_answer: false},
+        {content: "wrong yet again", correct_answer: false},
+    ])}
 ])
-# Populate the quizzes with questions and answers
-quizzes.each do |qz|
-    qz.questions.build([
-        {content: "Question 1"},
-        {content: "Question 2"},
-        {content: "Question 3"},
-        {content: "Question 4"}
-        ])
-        
-        qz.questions.each do |qn|
-            qn.answers.build([
-                {content: "Wrong", correct_answer: false},
-                {content: "Wrong Again", correct_answer: false},
-                {content: "Wrong Yet Again", correct_answer: false},
-                {content: "Right", correct_answer: true}
-                ])
-                
-    end
-    qz.save
-end
-
-# Assign Quizzes to groups
-groups.first.quizzes << quizzes.first
-groups.last.quizzes << quizzes.last
-
+quiz.update(published: true)
+quiz.save
