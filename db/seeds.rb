@@ -29,34 +29,34 @@ group.students << students
 
 # create 2 Quizzes
 quiz = Quiz.create(
-    name: "Quiz 1", 
+    name: "History", 
     group: group, 
     published: false
 )
 qs = Question.create([
-    {content: "a", quiz: quiz, answers: Answer.create([
-        {content: "right", correct_answer: true},
+    {content: "When was the war of 1812?", quiz: quiz, answers: Answer.create([
+        {content: "1812", correct_answer: true},
         {content: "wrong ", correct_answer: false},
         {content: "wrong again", correct_answer: false},
         {content: "wrong yet again", correct_answer: false},
     ])},
-    {content: "b", quiz: quiz, answers: Answer.create([
-        {content: "right", correct_answer: true},
-        {content: "wrong ", correct_answer: false},
-        {content: "wrong again", correct_answer: false},
-        {content: "wrong yet again", correct_answer: false},
+    {content: "Which US president declared war in 1812?", quiz: quiz, answers: Answer.create([
+        {content: "Thomas Jefferson", correct_answer: false},
+        {content: "James Madison", correct_answer: true},
+        {content: "Andrew Jackson", correct_answer: false},
+        {content: "John Adams", correct_answer: false},
     ])},
-    {content: "c", quiz: quiz, answers: Answer.create([
-        {content: "right", correct_answer: true},
-        {content: "wrong ", correct_answer: false},
-        {content: "wrong again", correct_answer: false},
-        {content: "wrong yet again", correct_answer: false},
+    {content: "Where was the peace treaty signed?", quiz: quiz, answers: Answer.create([
+        {content: "The Hague", correct_answer: false},
+        {content: "Antwerp", correct_answer: false},
+        {content: "Ghent", correct_answer: true},
+        {content: "Paris", correct_answer: false},
     ])},
-    {content: "d", quiz: quiz, answers: Answer.create([
-        {content: "right", correct_answer: true},
-        {content: "wrong ", correct_answer: false},
-        {content: "wrong again", correct_answer: false},
-        {content: "wrong yet again", correct_answer: false},
+    {content: "How many states mad up the US in 1812?", quiz: quiz, answers: Answer.create([
+        {content: "13", correct_answer: false},
+        {content: "45", correct_answer: false},
+        {content: "19", correct_answer: false},
+        {content: "17", correct_answer: true},
     ])}
 ])
 quiz.update(published: true)
