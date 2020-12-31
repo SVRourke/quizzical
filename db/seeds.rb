@@ -52,7 +52,7 @@ qs = Question.create([
         {content: "Ghent", correct_answer: true},
         {content: "Paris", correct_answer: false},
     ])},
-    {content: "How many states mad up the US in 1812?", quiz: quiz, answers: Answer.create([
+    {content: "How many states made up the US in 1812?", quiz: quiz, answers: Answer.create([
         {content: "13", correct_answer: false},
         {content: "45", correct_answer: false},
         {content: "19", correct_answer: false},
