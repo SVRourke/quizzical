@@ -1,0 +1,10 @@
+<%= render "shared/page_title", content: "Write A note" %>
+<%= render "shared/page_heading", content: "Write a note for #{@quiz.name}!" %>
+
+<%= form_for @note do |f| %>
+    <%= f.hidden_field :quiz_id, value: @quiz.id %>
+    <%= f.hidden_field :user_id, value: session[:user_id] %>
+    <%= f.label :content, 'Note: ' %><br><br>
+    <%= f.text_field :content %><br><br>
+    <%= f.submit "post note" %>
+<% end %>
