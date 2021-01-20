@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_12_122843) do
+ActiveRecord::Schema.define(version: 2021_01_19_224955) do
 
   create_table "answered_questions", force: :cascade do |t|
     t.integer "result_id"
@@ -53,6 +53,14 @@ ActiveRecord::Schema.define(version: 2020_12_12_122843) do
   create_table "groups_users", id: false, force: :cascade do |t|
     t.integer "group_id", null: false
     t.integer "user_id", null: false
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.string "content"
+    t.integer "quiz_id"
+    t.integer "user_id"
+    t.index ["quiz_id"], name: "index_notes_on_quiz_id"
+    t.index ["user_id"], name: "index_notes_on_user_id"
   end
 
   create_table "questions", force: :cascade do |t|

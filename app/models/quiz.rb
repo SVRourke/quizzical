@@ -5,6 +5,7 @@ class Quiz < ApplicationRecord
     has_many :questions, dependent: :delete_all
     belongs_to :group
     has_many :results, dependent: :delete_all
+    has_many :notes
     
     validates_with QuizValidator, on: :create
     validates_with PublicationValidator, on: :update

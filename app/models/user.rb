@@ -28,6 +28,7 @@ class User < ApplicationRecord
     has_many :assigned_quizzes, through: :enrolled_classes, source: :quizzes
     has_many :teachers, through: :enrolled_classes, source: :teacher
     has_many :results
+    has_many :notes
 
     def full_name
         "#{first_name} #{last_name}"
