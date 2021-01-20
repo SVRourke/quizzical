@@ -26,6 +26,7 @@ class QuizzesController < ApplicationController
     def show
         authorize Quiz, :show?
         @quiz = Quiz.find(params[:id])
+        @notes = @quiz.notes
     end
 
     def destroy
